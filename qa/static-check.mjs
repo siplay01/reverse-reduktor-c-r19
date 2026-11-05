@@ -2,7 +2,7 @@
 import fs from "node:fs"; import path from "node:path"; import assert from "node:assert/strict";
 const DIST = path.resolve(import.meta.dirname, "../dist"), BASE = (process.env.BASE || "").replace(/\/$/, ""), INDEX = process.env.INDEX === "1";
 const walk = (d) => fs.readdirSync(d, { withFileTypes: true }).flatMap((e) => (e.isDirectory() ? walk(path.join(d, e.name)) : [path.join(d, e.name)]));
-const pages = walk(DIST).filter((f) => f.endsWith(".html") && !f.includes(path.sep + "admin" + path.sep));
+const pages = walk(DIST).filter((f) => f.endsWith(".html") && !/(^|\/)admin(-sveltia)?\//.test(path.relative(DIST, f)));
 const count = (dir) => fs.readdirSync(path.join(import.meta.dirname, "../content", dir)).length;
 const errs = [];
 const bad = (m) => errs.push(m);

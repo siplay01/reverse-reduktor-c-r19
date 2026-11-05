@@ -31,3 +31,12 @@ body.static .c-ap { font-size: 14px; }
 .node > *, .model-grid > *, .part-grid > * { min-width: 0; }
 .tbl { overflow-x: auto; max-width: 100%; }
 .node .node-spec .tbl, .cat .tbl { overflow-x: auto; max-height: none; }
+/* big NEW banner under the hero */
+.newband { background: #b3122a; color: #fff; }
+.newband-in { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 48px; align-items: center; padding-block: 40px; }
+.newband-label { margin: 0; font-size: clamp(88px, 17vw, 220px); line-height: .85; font-weight: 800; letter-spacing: -.02em; }
+.newband-kicker { margin: 0 0 8px; font-size: 14px; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; }
+.newband h2 { margin: 0 0 12px; font-size: clamp(26px, 3.4vw, 40px); line-height: 1.12; color: #fff; }
+.newband p { color: #fff; max-width: 60ch; }
+.newband .btn-white { color: #7d0d1d; }
+@media (max-width: 800px) { .newband-in { grid-template-columns: 1fr; gap: 16px; padding-block: 28px; } }

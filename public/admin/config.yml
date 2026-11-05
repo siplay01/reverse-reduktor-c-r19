@@ -31,6 +31,17 @@ collections:
               - { label: Рисунок (малый), name: picture_small, widget: image }
               - { label: Подпись, name: picture_caption, widget: string }
               - { label: Пояснение к подписи, name: picture_note, widget: string }
+          - label: Большой баннер NEW (новый продукт)
+            name: new_product
+            widget: object
+            fields:
+              - { label: Показывать баннер, name: enabled, widget: boolean }
+              - { label: Крупная надпись, name: label, widget: string }
+              - { label: Строка над заголовком, name: kicker, widget: string }
+              - { label: Заголовок, name: title, widget: string }
+              - { label: Текст, name: text, widget: text }
+              - { label: Текст кнопки, name: button, widget: string }
+              - { label: Ссылка кнопки, name: link, widget: string }
           - label: Гарантия
             name: warranty
             widget: object
