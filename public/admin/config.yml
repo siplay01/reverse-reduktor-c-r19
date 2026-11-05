@@ -56,6 +56,15 @@ collections:
               - { label: Заголовок, name: title, widget: string }
               - { label: Текст, name: text, widget: text }
           - { label: Услуги, name: services, widget: list, field: { label: Услуга, name: item, widget: string } }
+          - label: Как нас найти (карта и проезд)
+            name: contacts
+            widget: object
+            fields:
+              - { label: Широта, name: lat, widget: number, value_type: float }
+              - { label: Долгота, name: lon, widget: number, value_type: float }
+              - { label: Масштаб карты (1-19), name: zoom, widget: number, value_type: int, min: 1, max: 19 }
+              - { label: Часы работы, name: hours, widget: string, required: false }
+              - { label: Как добраться (текст схемы проезда), name: directions, widget: text, required: false }
           - label: Организация и контакты
             name: company
             widget: object
@@ -166,8 +175,9 @@ collections:
       - label: Рисунки каталога
         name: figures
         widget: object
+        required: false
         fields:
-          - { label: РРП-300, name: rrp-300, widget: list, field: { label: Рис., name: n, widget: number, value_type: int } }
-          - { label: РРП-3Д6, name: rrp-3d6, widget: list, field: { label: Рис., name: n, widget: number, value_type: int } }
+          - { label: РРП-300, name: rrp-300, widget: list, required: false, field: { label: Рис., name: n, widget: number, value_type: int } }
+          - { label: РРП-3Д6, name: rrp-3d6, widget: list, required: false, field: { label: Рис., name: n, widget: number, value_type: int } }
       - { label: Зависит от исполнения, name: depends_on_variant, widget: boolean, required: false }
       - { label: "Цена за единицу, ₽ (по прайсу 2025 г.)", name: price_rub, widget: number, value_type: int, required: false }

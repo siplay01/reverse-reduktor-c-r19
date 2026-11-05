@@ -20,11 +20,22 @@ node qa/test.mjs                    # browser tests (Chromium + WebKit, 1360 and
 
 Build options (environment): `SITE_URL` (absolute address for canonical and sitemap), `BASE` (path prefix, `/reverse-reduktor-c-r19` on GitHub Pages, empty on a domain), `INDEX=1` (allow indexing; without it every page is `noindex` and `robots.txt` disallows all). Moving hosts = change these three values and rebuild.
 
-## Admin (Decap CMS)
+## Admin
 
-Local, no server and no account: in this folder run `npx decap-server` (the official Decap local proxy), then `node scripts/serve.mjs`, open http://localhost:4341/admin/. `local_backend: true` in `public/admin/config.yml` makes the admin edit the real files in `content/`. After saving, run `node build.mjs` and reload.
+Two admins read the same `public/admin/config.yml` and the same `content/` files:
 
-Production: the GitHub backend needs an OAuth proxy (see https://decapcms.org/docs/external-oauth-clients/); the site itself can be on any host, only the admin login depends on it. Collections: «Настройки сайта», «Продукция (модели)» (specs, variants, constructor options, NEW status, SEO), «Запасные части» (377 + new).
+- `/admin/` = **Sveltia CMS** (primary, pinned 0.255.0): modern UI, Russian when the browser language is Russian, works on a phone. Two ways to use it:
+  - **On the published site (any browser):** «Sign In Using Access Token», paste a GitHub fine-grained token with Contents (read/write) on this repository. Every save becomes a commit on `main`; the Pages workflow rebuilds and republishes in about a minute. No OAuth server needed. The token stays in that browser only.
+  - **Locally (Chrome, Edge or Brave only, not Safari or Firefox):** `node build.mjs && node scripts/serve.mjs 4341`, open http://localhost:4341/admin/, «Work with Local Repository», pick this folder. Edits go to the files; rebuild and reload to see them.
+- `/admin-decap/` = **Decap CMS** (fallback, pinned 3.17.1): needs `npx decap-server` in this folder for local editing (`local_backend: true`); production login needs an OAuth proxy.
+
+Collections: «Настройки сайта» (hero, big NEW banner, warranty, tenders, map coordinates and directions text, company, SEO), «Продукция (модели)», «Запасные части» (377 + new).
+
+Why Sveltia: it supports token sign-in (Decap does not), its local mode needs no helper server, and it is actively maintained (checked 2026-11-04). Its documentation says that the CMS reads the same config as Decap; the automated test creates a part through its form and sees it in the list.
+
+## Contacts page
+
+`/kontakty/` («Как нас найти»): address, phone, e-mail, buttons «Построить маршрут» and «Открыть в Яндекс.Картах», and the Yandex map widget. The map loads only after a click on «Показать карту» (Yandex sets its own cookies). Coordinates (53.2563675, 83.7063668) come from a one-time OpenStreetMap lookup of the address and were checked on the Yandex map; they and the optional «Как добраться» text are editable in the admin. Directions text and working hours are empty until the owner supplies them (nothing is invented).
 
 ## Content rules kept from earlier revisions
 

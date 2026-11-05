@@ -34,6 +34,7 @@
   }
   document.addEventListener("click", (e) => {
     const t = e.target;
+    const ml = t.closest("[data-map-load]"); if (ml) { const m = ml.closest("[data-map]"); m.innerHTML = `<iframe class="find-frame" src="${m.dataset.src}" title="Карта проезда, Яндекс.Карты" loading="lazy" allowfullscreen></iframe>`; }
     if (t.closest("[data-cfg-add]")) add(box.dataset.model, cfgLine(), "Конструктор", 1);
     const a = t.closest("[data-add]"); if (a) add(a.dataset.add, a.dataset.name, a.dataset.where, Math.max(1, parseInt(a.parentElement.querySelector("[data-qty]")?.value, 10) || 1));
     if (t.closest("[data-cart-open]")) { renderCart(); $("#cart").showModal(); }

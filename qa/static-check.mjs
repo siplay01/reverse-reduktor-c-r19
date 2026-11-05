@@ -2,12 +2,12 @@
 import fs from "node:fs"; import path from "node:path"; import assert from "node:assert/strict";
 const DIST = path.resolve(import.meta.dirname, "../dist"), BASE = (process.env.BASE || "").replace(/\/$/, ""), INDEX = process.env.INDEX === "1";
 const walk = (d) => fs.readdirSync(d, { withFileTypes: true }).flatMap((e) => (e.isDirectory() ? walk(path.join(d, e.name)) : [path.join(d, e.name)]));
-const pages = walk(DIST).filter((f) => f.endsWith(".html") && !/(^|\/)admin(-sveltia)?\//.test(path.relative(DIST, f)));
+const pages = walk(DIST).filter((f) => f.endsWith(".html") && !/(^|\/)admin(-decap)?\//.test(path.relative(DIST, f)));
 const count = (dir) => fs.readdirSync(path.join(import.meta.dirname, "../content", dir)).length;
 const errs = [];
 const bad = (m) => errs.push(m);
 // 1. page counts match the content
-const expected = 1 + count("models") + 2 /* katalog, vse */ + 4 /* model catalogs */ + count("nodes") + count("parts") + 2 /* dokumenty */ + 1 /* 404 */;
+const expected = 1 + count("models") + 2 /* katalog, vse */ + 4 /* model catalogs */ + count("nodes") + count("parts") + 2 /* dokumenty */ + 1 /* kontakty */ + 1 /* 404 */;
 if (pages.length !== expected) bad(`pages ${pages.length}, expected ${expected}`);
 const hrefs = new Map();
 for (const f of pages) {

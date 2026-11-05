@@ -30,11 +30,16 @@ for (const [name, eng] of [["chromium", chromium], ["webkit", webkit]]) {
     await p.goto(U("/detal/525-16-113/")); await p.click(".part-buy [data-add]");
     assert.equal(await p.locator("[data-cart-count]").first().innerText(), "2");
     await p.click("[data-cart-open]"); assert.equal(await p.locator("#cart-items li").count(), 2); await p.click("[data-cart-close]");
+    // 2b. contacts: nothing from Yandex loads until the click; then the map frame points at the company address
+    await p.goto(U("/kontakty/")); assert.equal(await p.locator("iframe").count(), 0, "no frame before click");
+    const route = await p.locator('a:has-text("Построить маршрут")').getAttribute("href"); assert.match(route, /rtext=~53\.2563675%2C83\.7063668/);
+    await p.click("[data-map-load]"); const src = await p.locator("iframe.find-frame").getAttribute("src"); assert.match(src, /^https:\/\/yandex\.ru\/map-widget\/v1\/\?ll=83\.7063668%2C53\.2563675/);
+    assert.ok((await p.locator("header.head nav a", { hasText: "Контакты" }).count()) >= 1, "nav item");
     // 3. catalog list filter from ?q
     await p.goto(U("/katalog/vse/?q=525-16-113")); await p.waitForSelector("table.spec");
     assert.equal(await p.locator("table.spec tbody tr:not([hidden])").count(), 1);
     // 4. no horizontal overflow on the main page types
-    for (const pg of ["/", "/produkciya/rrp-300/", "/katalog/", "/katalog/rrp-300/", "/katalog/rrp-300/ris-3/", "/detal/525-16-113/", "/dokumenty/"]) {
+    for (const pg of ["/", "/produkciya/rrp-300/", "/katalog/", "/katalog/rrp-300/", "/katalog/rrp-300/ris-3/", "/detal/525-16-113/", "/dokumenty/", "/kontakty/"]) {
       await p.goto(U(pg)); await p.waitForLoadState("load");
       const over = await p.evaluate(() => { const bad = []; if (document.documentElement.scrollWidth > innerWidth) bad.push("page " + document.documentElement.scrollWidth); return bad; });
       assert.deepEqual(over, [], `${pg} @${w}`);
@@ -43,16 +48,29 @@ for (const [name, eng] of [["chromium", chromium], ["webkit", webkit]]) {
   }
   assert.deepEqual(errs, [], errs.join("\n")); console.log(name, "ok"); await b.close();
 }
-// 5. admin: Decap loads and lists the three collections (test-repo backend swapped in, the real config otherwise as written)
+// 5. admins: both read the same config.yml; the test swaps the git backend for the in-browser test backend (no network writes)
+const cfgText = (name) => fs.readFileSync(path.resolve(import.meta.dirname, "../public/admin/config.yml"), "utf8").replace(/backend:\n  name: github\n  repo: .*\n  branch: .*\n/, `backend:\n  name: test-repo\n  repo: test/test\n`).replace("local_backend: true\n", "");
+async function adminPage(b, url, loginName) {
+  const p = await (await b.newContext({ viewport: { width: 1360, height: 900 }, locale: "ru-RU" })).newPage(); const errs = [];
+  p.on("pageerror", (e) => errs.push(e.message)); await p.route(/admin\/config\.yml/, (r) => r.fulfill({ contentType: "text/yaml", body: cfgText() }));
+  await p.goto(U(url)); await p.getByRole("button", { name: loginName }).click(); return { p, errs };
+}
 {
-  const cfg = fs.readFileSync(path.resolve(import.meta.dirname, "../public/admin/config.yml"), "utf8").replace(/backend:\n  name: github\n  repo: .*\n  branch: .*\n/, "backend:\n  name: test-repo\n").replace("local_backend: true\n", "");
-  const b = await chromium.launch(); const p = await (await b.newContext({ viewport: { width: 1360, height: 900 } })).newPage(); const errs = [];
-  p.on("pageerror", (e) => errs.push(e.message));
-  await p.route("**/admin/config.yml", (r) => r.fulfill({ contentType: "text/yaml", body: cfg }));
-  await p.goto(U("/admin/")); await p.getByRole("button", { name: "Войти" }).click(); await p.waitForSelector('a[href^="#/collections/"]', { timeout: 30000 });
-  const side = await p.locator('a[href^="#/collections/"]').allInnerTexts();
-  for (const t of ["Настройки сайта", "Продукция (модели)", "Запасные части"]) assert.ok(side.some((x) => x.includes(t)), t + " in " + side.join("|"));
-  await p.goto(U("/admin/#/collections/parts/new")); for (const l of ["Обозначение", "Наименование", "Группа"]) await p.getByText(l, { exact: true }).first().waitFor({ timeout: 20000 });
+  const b = await chromium.launch();
+  // 5a. Sveltia (primary, /admin/): collections, create a part through the form, it shows in the list
+  let { p, errs } = await adminPage(b, "/admin/", /Test Repository|тестов/i);
+  for (const t of ["Настройки сайта", "Продукция (модели)", "Запасные части"]) await p.getByText(t, { exact: true }).first().waitFor({ timeout: 30000 });
+  await p.goto(U("/admin/#/collections/parts/new"));
+  await p.getByRole("textbox", { name: /Обозначение/ }).fill("999-TEST-1"); await p.getByRole("textbox", { name: /Наименование/ }).fill("Тестовая деталь");
+  await p.getByRole("combobox", { name: /Группа/ }).click(); await p.getByRole("option", { name: "Кольца" }).click(); await p.getByRole("checkbox", { name: "rrp-300" }).check();
+  await p.getByRole("button", { name: "Сохранить" }).click(); await p.goto(U("/admin/#/collections/parts"));
+  await p.getByText("999-TEST-1").first().waitFor({ timeout: 15000 });
   if (process.env.ADMIN_SHOT) await p.screenshot({ path: process.env.ADMIN_SHOT });
-  assert.deepEqual(errs, [], errs.join("\n")); console.log("admin ok"); await b.close();
+  assert.deepEqual(errs, [], errs.join("\n")); console.log("admin (Sveltia) ok");
+  // 5b. Decap (fallback, /admin-decap/): loads, lists the collections, new-part form has the fields
+  ({ p, errs } = await adminPage(b, "/admin-decap/", "Войти"));
+  await p.waitForSelector('a[href^="#/collections/"]', { timeout: 30000 }); const side = await p.locator('a[href^="#/collections/"]').allInnerTexts();
+  for (const t of ["Настройки сайта", "Продукция (модели)", "Запасные части"]) assert.ok(side.some((x) => x.includes(t)), t);
+  await p.goto(U("/admin-decap/#/collections/parts/new")); for (const l of ["Обозначение", "Наименование", "Группа"]) await p.getByText(l, { exact: true }).first().waitFor({ timeout: 20000 });
+  assert.deepEqual(errs, [], errs.join("\n")); console.log("admin (Decap) ok"); await b.close();
 }

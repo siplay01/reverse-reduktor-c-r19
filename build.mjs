@@ -24,10 +24,11 @@ const price = (p) => (p.price_rub ? `${nf.format(p.price_rub)}&nbsp;₽` : `<spa
 const PRICE_NOTE = "Цены за единицу по прайсу 2025 г., уточняйте при заказе.";
 const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
 const written = [];
+fs.rmSync(DIST, { recursive: true, force: true }); // never ship stale files from earlier builds
 function write(urlPath, html) { const f = path.join(DIST, urlPath.endsWith(".html") ? urlPath : path.join(urlPath, "index.html")); fs.mkdirSync(path.dirname(f), { recursive: true }); fs.writeFileSync(f, html); written.push(urlPath); }
 
 // ---------- layout ----------
-const NAV = [["produkciya", "/#produkciya", "Наша продукция"], ["katalog", "/katalog/", "Запасные части"], ["uslugi", "/#uslugi", "Услуги"], ["dokumenty", "/dokumenty/", "Техническая документация"]];
+const NAV = [["produkciya", "/#produkciya", "Наша продукция"], ["katalog", "/katalog/", "Запасные части"], ["uslugi", "/#uslugi", "Услуги"], ["dokumenty", "/dokumenty/", "Техническая документация"], ["kontakty", "/kontakty/", "Контакты"]];
 const strip = `<div class="strip"><div class="wrap strip-in"><span class="strip-l">${esc(C.operator)} · г. Барнаул · Судовое машиностроение</span><span class="strip-c">РКО № ${esc(S.cert.no)} · до ${esc(S.cert.to)}</span><a class="strip-r" href="tel:${esc(C.tel)}">${esc(C.phone)}</a></div></div>`;
 const header = (section) => `<header class="head"><div class="wrap head-in">
     <a class="brand" href="${u("/")}" aria-label="${esc(C.brand)}, на главную"><svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true"><rect x="1.5" y="1.5" width="45" height="45"/><circle cx="24" cy="24" r="10.5"/><path d="M9 37L39 12"/></svg><span><span class="brand-name">${esc(C.brand)}</span><span class="brand-sub">Судовое оборудование · ${esc(C.operator)}</span></span></a>
@@ -36,7 +37,7 @@ const header = (section) => `<header class="head"><div class="wrap head-in">
     <details class="burger"><summary aria-label="Меню"><span></span></summary><nav aria-label="Разделы, мобильное меню">${NAV.map(([, h, t]) => `<a href="${u(h)}">${t}</a>`).join("")}<a href="tel:${esc(C.tel)}">${esc(C.phone)}</a></nav></details>
   </div></header>`;
 const footer = `<footer class="foot foot-r2" id="kontakty"><div class="wrap"><div class="foot-grid">
-  <div class="foot-contact"><p class="foot-name">${esc(C.brand)}</p><p>Судовое оборудование · ${esc(C.operator)}</p><p class="foot-phone"><a href="tel:${esc(C.tel)}">${esc(C.phone)}</a></p><p><a href="mailto:${esc(C.email)}">${esc(C.email)}</a></p><p>${esc(C.address)}</p></div>
+  <div class="foot-contact"><p class="foot-name">${esc(C.brand)}</p><p>Судовое оборудование · ${esc(C.operator)}</p><p class="foot-phone"><a href="tel:${esc(C.tel)}">${esc(C.phone)}</a></p><p><a href="mailto:${esc(C.email)}">${esc(C.email)}</a></p><p>${esc(C.address)} <a href="${u("/kontakty/")}">Как нас найти</a></p></div>
   <nav aria-label="Разделы, подвал"><p class="foot-h">Разделы</p>${NAV.map(([, h, t]) => `<a href="${u(h)}">${t}</a>`).join("")}</nav>
   <nav aria-label="Запасные части, подвал"><p class="foot-h">Запасные части</p>${withCat.map((m) => `<a href="${u(`/katalog/${m.slug}/`)}">${esc(m.name)}</a>`).join("")}<a href="${u("/katalog/vse/")}">Все запчасти</a></nav>
   <div class="foot-req"><p class="foot-h">Реквизиты</p><dl class="req" id="req">${[["Организация", C.operator], ["ИНН / КПП", `${C.inn} / ${C.kpp}`], ["ОГРН", C.ogrn], ["Банк", C.bank], ["БИК", C.bik], ["Р/с", C.rs], ["К/с", C.ks]].map(([a, b]) => `<div><dt>${a}</dt><dd>${esc(b)}</dd></div>`).join("")}</dl><button type="button" class="linkish" data-copy-req>Скопировать реквизиты</button></div>
@@ -179,6 +180,25 @@ page({ url: "/dokumenty/", title: "Техническая документаци
   body: `<div class="wrap cat">${crumbs([["Техническая документация"]])}${head1("Техническая документация", "", "Каталоги и руководства. Новые документы добавляются по мере подготовки.", "art-doc")}${DOCS.map((g) => `<section class="ar-group"><h2>${esc(g.group)}</h2><ul class="archive">${g.items.map((d) => `<li${d.soon ? ' class="ar-soon"' : ""}><svg class="ar-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2.5h8l4.5 4.5v14.5H6z M14 2.5V7h4.5"/></svg><span class="ar-t">${esc(d.title)}</span><span class="ar-p">${esc(d.product)}</span><span class="ar-f">${d.soon ? '<span class="badge">В подготовке</span>' : esc(d.format)}</span><span class="ar-a">${d.links.map((l) => `<a class="btn btn-line btn-sm" href="${hrefOf(l.href)}"${/\.pdf/.test(l.href) ? ' target="_blank" rel="noopener"' : ""}>${esc(l.label)}</a>`).join("")}</span></li>`).join("")}</ul></section>`).join("")}</div>`, ld: [crumbLd([["Техническая документация"]])] });
 page({ url: "/dokumenty/katalog-rrp-300/", title: "Каталог деталей РРП-300: сканы страниц", description: `Сканы ${SCANS.length} страниц каталога деталей реверс-редукторной передачи РРП-300.`, section: "dokumenty",
   body: `<div class="wrap cat">${crumbs([["Техническая документация", "/dokumenty/"], ["Каталог деталей РРП-300"]])}${head1("Каталог деталей РРП-300: сканы страниц", "", `${SCANS.length} страниц. Нажмите страницу, чтобы открыть её в полном размере.`)}<ul class="scans">${SCANS.map((s) => `<li><a href="${u("/" + s.full)}" target="_blank" rel="noopener"><img src="${u("/" + s.thumb)}" width="420" height="305" alt="Страница ${s.n}: ${esc(s.title)}" loading="lazy"><span>${s.n}. ${esc(s.title)}</span></a></li>`).join("")}</ul></div>`, ld: [] });
+
+// ---------- contacts: how to find us (Yandex map loaded on click only) ----------
+{
+  const K = S.contacts, ll = `${K.lon}%2C${K.lat}`;
+  const widget = `https://yandex.ru/map-widget/v1/?ll=${ll}&z=${K.zoom}&pt=${ll}%2Cpm2rdm`;
+  const open = `https://yandex.ru/maps/?ll=${ll}&z=${K.zoom}&pt=${ll}`, route = `https://yandex.ru/maps/?rtext=~${K.lat}%2C${K.lon}&rtt=auto`;
+  const body = `<div class="wrap cat">${crumbs([["Как нас найти"]])}${head1("Как нас найти", "", `${esc(C.operator)}, ${esc(C.address)}`)}
+    <div class="find">
+      <div class="find-map" data-map data-src="${widget}"><div class="find-facade"><p class="find-addr">${esc(C.address)}</p>
+        <p><button type="button" class="btn btn-white" data-map-load>Показать карту</button></p>
+        <p class="muted small">Карту предоставляет Яндекс. При загрузке карты Яндекс может получать данные о вашем посещении. Без нажатия кнопки карта не загружается.</p></div></div>
+      <aside class="find-info"><h2>Контакты</h2>
+        <dl class="req part-kv"><div><dt>Адрес</dt><dd>${esc(C.address)}</dd></div><div><dt>Телефон</dt><dd><a href="tel:${esc(C.tel)}">${esc(C.phone)}</a></dd></div><div><dt>E-mail</dt><dd><a href="mailto:${esc(C.email)}">${esc(C.email)}</a></dd></div>${K.hours ? `<div><dt>Часы работы</dt><dd>${esc(K.hours)}</dd></div>` : ""}</dl>
+        <p class="find-btns"><a class="btn btn-white" href="${route}" target="_blank" rel="noopener">Построить маршрут</a> <a class="btn btn-line" href="${open}" target="_blank" rel="noopener">Открыть в Яндекс.Картах</a></p>
+        ${K.directions ? `<h2>Как добраться</h2><p class="find-dir">${esc(K.directions).replace(/\n/g, "<br>")}</p>` : ""}</aside>
+    </div></div>`;
+  page({ url: "/kontakty/", title: "Как нас найти: контакты и схема проезда", description: `${C.operator}: адрес, телефон, e-mail и карта проезда. ${C.address}.`, section: "kontakty", body,
+    ld: [{ ...orgLd, geo: { "@type": "GeoCoordinates", latitude: K.lat, longitude: K.lon } }, crumbLd([["Как нас найти"]])] });
+}
 
 // ---------- 404, sitemap, robots, static files ----------
 fs.mkdirSync(DIST, { recursive: true });

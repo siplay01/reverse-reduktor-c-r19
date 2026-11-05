@@ -42,3 +42,17 @@ body.static .c-ap { font-size: 14px; }
 @media (max-width: 800px) { .newband-in { grid-template-columns: 1fr; gap: 16px; padding-block: 28px; } }
 .newband .btn { background: #fff; color: #7d0d1d; border-color: #fff; }
 .newband .btn:hover { background: #f3d9dd; }
+
+/* contacts page */
+.find { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 32px; margin: 24px 0 48px; align-items: start; }
+.find-map { background: #eef1f0; border: 1px solid var(--line); min-height: 480px; display: grid; }
+.find-facade { align-self: center; padding: 32px; text-align: center; }
+.find-addr { font-size: 20px; font-weight: 650; margin: 0 0 16px; }
+.find-frame { width: 100%; height: 100%; min-height: 480px; border: 0; display: block; }
+.find-info h2 { margin: 0 0 12px; }
+.find-btns { display: flex; flex-wrap: wrap; gap: 8px; margin: 24px 0; }
+.find-dir { margin: 0; }
+@media (max-width: 900px) { .find { grid-template-columns: 1fr; } .find-map, .find-frame { min-height: 360px; } }
+
+@media (min-width: 1301px) { .nav { gap: 18px; } .nav a { font-size: 15.5px; } .head-in { gap: 20px; } }
+@media (max-width: 1300px) { .nav { display: none; } .burger { display: block; } .head-in { gap: 12px; } }
