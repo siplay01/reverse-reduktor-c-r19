@@ -1,0 +1,16 @@
+{
+  "designation": "525-517",
+  "name": "Винт",
+  "type": "Гайки, болты, винты",
+  "models": [
+    "rrp-300"
+  ],
+  "figures": {
+    "rrp-300": [
+      4
+    ],
+    "rrp-3d6": []
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}

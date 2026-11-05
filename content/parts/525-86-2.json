@@ -1,0 +1,17 @@
+{
+  "designation": "525-86-2",
+  "name": "Ось ролика комплект",
+  "type": "Прочие детали",
+  "models": [
+    "rrp-3d6"
+  ],
+  "figures": {
+    "rrp-300": [],
+    "rrp-3d6": [
+      91,
+      92
+    ]
+  },
+  "depends_on_variant": false,
+  "price_rub": 3000
+}

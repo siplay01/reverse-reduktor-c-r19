@@ -1,0 +1,14 @@
+{
+  "designation": "СБ.1225-08-3",
+  "name": "Вал переднего хода с жиклером",
+  "type": "Валы",
+  "models": [
+    "rrp-3d12"
+  ],
+  "figures": {
+    "rrp-300": [],
+    "rrp-3d6": []
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}

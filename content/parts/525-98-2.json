@@ -1,0 +1,16 @@
+{
+  "designation": "525-98-2",
+  "name": "Заклепка трубчатая",
+  "type": "Гайки, болты, винты",
+  "models": [
+    "rrp-3d6"
+  ],
+  "figures": {
+    "rrp-300": [],
+    "rrp-3d6": [
+      90
+    ]
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}

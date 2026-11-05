@@ -1,0 +1,14 @@
+{
+  "designation": "1225-53-3А",
+  "name": "Гайка вала переднего хода",
+  "type": "Гайки, болты, винты",
+  "models": [
+    "rrp-3d12"
+  ],
+  "figures": {
+    "rrp-300": [],
+    "rrp-3d6": []
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}

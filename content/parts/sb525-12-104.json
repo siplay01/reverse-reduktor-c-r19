@@ -1,0 +1,16 @@
+{
+  "designation": "СБ525-12-104",
+  "name": "Насос масляный правого вращения",
+  "type": "Насосы",
+  "models": [
+    "rrp-300"
+  ],
+  "figures": {
+    "rrp-300": [
+      18
+    ],
+    "rrp-3d6": []
+  },
+  "depends_on_variant": true,
+  "price_rub": 46000
+}

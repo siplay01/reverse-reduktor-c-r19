@@ -1,0 +1,33 @@
+/* c-r19: styles for the static pages (model, part, catalog lists); everything else comes from site.css (c-r18 look) */
+.model-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; align-items: start; margin: 24px 0 32px; }
+.model-pic { margin: 0; background: #fff; border: 1px solid var(--line); }
+.model-pic img { display: block; width: 100%; height: auto; }
+.model-pic.is-soon { background: #eef1f0; padding: 0; }
+.model-pic .ph-art { width: 100%; height: auto; }
+.model-info .stab { width: 100%; margin: 16px 0; }
+.model-page .vtab, .model-page .tbl { margin-bottom: 32px; }
+.model-page .sec-cfg-in { margin: 32px 0; }
+.part-grid { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 32px; margin: 24px 0 48px; align-items: start; }
+.part-kv > div { padding: 12px 0; border-top: 1px solid var(--line); }
+.part-buy { border: 1px solid var(--line); border-top: 3px solid var(--accent); background: #fff; padding: 24px; }
+.cat h2 { margin: 32px 0 16px; }
+.ar-group h2 { margin: 32px 0 12px; }
+.archive { list-style: none; padding: 0; margin: 0; }
+.tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 16px; }
+.tile { display: grid; gap: 4px; border: 1px solid var(--line); background: #fff; padding: 8px; text-decoration: none; color: inherit; }
+.tile img { width: 100%; height: auto; display: block; }
+.tile-t { font-size: 14px; } .tile-n { font-size: 13px; color: var(--sub); }
+.scans { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 16px; }
+.scans a { display: grid; gap: 4px; text-decoration: none; color: inherit; font-size: 13px; }
+.scans img { width: 100%; height: auto; border: 1px solid var(--line); }
+body.static .c-ap { font-size: 14px; }
+@media (max-width: 800px) { .model-grid, .part-grid { grid-template-columns: 1fr; } }
+.part-kv { background: #fff; border: 1px solid var(--line); padding: 4px 24px; margin: 0; }
+.part-kv > div { display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: 16px; align-items: baseline; }
+.part-kv dt { font-family: inherit; }
+.part-kv dd { font-family: inherit; font-weight: 500; margin: 0; }
+@media (max-width: 800px) { .part-kv > div { grid-template-columns: 1fr; gap: 4px; } }
+
+.node > *, .model-grid > *, .part-grid > * { min-width: 0; }
+.tbl { overflow-x: auto; max-width: 100%; }
+.node .node-spec .tbl, .cat .tbl { overflow-x: auto; max-height: none; }

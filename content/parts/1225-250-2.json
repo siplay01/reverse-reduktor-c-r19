@@ -1,0 +1,16 @@
+{
+  "designation": "1225-250-2",
+  "name": "Шайба",
+  "type": "Шайбы",
+  "models": [
+    "rrp-3d6"
+  ],
+  "figures": {
+    "rrp-300": [],
+    "rrp-3d6": [
+      98
+    ]
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}

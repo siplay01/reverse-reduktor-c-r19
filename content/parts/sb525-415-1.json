@@ -1,0 +1,17 @@
+{
+  "designation": "СБ525-415-1",
+  "name": "Крышка",
+  "type": "Крышки и корпуса",
+  "models": [
+    "rrp-300"
+  ],
+  "figures": {
+    "rrp-300": [
+      18,
+      19
+    ],
+    "rrp-3d6": []
+  },
+  "depends_on_variant": true,
+  "price_rub": null
+}

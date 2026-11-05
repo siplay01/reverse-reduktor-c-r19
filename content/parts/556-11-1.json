@@ -1,0 +1,17 @@
+{
+  "designation": "556-11-1",
+  "name": "Болт М14х40",
+  "type": "Гайки, болты, винты",
+  "models": [
+    "rrp-300"
+  ],
+  "figures": {
+    "rrp-300": [
+      1,
+      2
+    ],
+    "rrp-3d6": []
+  },
+  "depends_on_variant": true,
+  "price_rub": null
+}

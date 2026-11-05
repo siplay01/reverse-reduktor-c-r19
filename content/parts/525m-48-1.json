@@ -1,0 +1,16 @@
+{
+  "designation": "525М-48-1",
+  "name": "Шестерня переднего хода",
+  "type": "Шестерни",
+  "models": [
+    "rrp-3d6"
+  ],
+  "figures": {
+    "rrp-300": [],
+    "rrp-3d6": [
+      96
+    ]
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}

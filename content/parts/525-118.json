@@ -1,0 +1,20 @@
+{
+  "designation": "525-118",
+  "name": "Прокладка",
+  "type": "Прокладки и уплотнения",
+  "models": [
+    "rrp-300",
+    "rrp-3d6"
+  ],
+  "figures": {
+    "rrp-300": [
+      14,
+      15
+    ],
+    "rrp-3d6": [
+      97
+    ]
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}

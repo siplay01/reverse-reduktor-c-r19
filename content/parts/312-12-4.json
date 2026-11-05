@@ -1,0 +1,16 @@
+{
+  "designation": "312-12-4",
+  "name": "Пружина клапана редукционного",
+  "type": "Пружины",
+  "models": [
+    "rrp-300"
+  ],
+  "figures": {
+    "rrp-300": [
+      26
+    ],
+    "rrp-3d6": []
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}

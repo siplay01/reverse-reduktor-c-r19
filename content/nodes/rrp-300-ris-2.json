@@ -1,0 +1,280 @@
+{
+  "model": "rrp-300",
+  "fig": 2,
+  "title": "Реверс-редуктор с шестнадцати пальцевой соединительной муфтой",
+  "image": "assets/152cf31f83ed-900.webp",
+  "image_large": "assets/152cf31f83ed-2000.webp",
+  "thumb": "assets/152cf31f83ed-420.webp",
+  "width": 900,
+  "height": 654,
+  "variants": [
+    "-",
+    "-010",
+    "-001",
+    "-011",
+    "-040",
+    "-041",
+    "-004",
+    "-014",
+    "-005",
+    "-015"
+  ],
+  "rows": [
+    {
+      "pos": 1,
+      "designation": "СБ525-01-13",
+      "name": "Реверс-редуктор",
+      "qty": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 2,
+      "designation": "353-20",
+      "name": "Шайба стопорная 12",
+      "qty": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        10,
+        10,
+        10,
+        10
+      ],
+      "note": "1"
+    },
+    {
+      "pos": 3,
+      "designation": "553-70",
+      "name": "Шайба 12",
+      "qty": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        10,
+        10,
+        10,
+        10
+      ],
+      "note": "2"
+    },
+    {
+      "pos": 4,
+      "designation": "553-02-1",
+      "name": "Шайба 12Н65Г05 ГОСТ 6402-70",
+      "qty": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        10,
+        10,
+        10,
+        10
+      ],
+      "note": "2"
+    },
+    {
+      "pos": 5,
+      "designation": "351-09",
+      "name": "Гайка М12х1,5",
+      "qty": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        10,
+        10,
+        10,
+        10
+      ],
+      "note": "2"
+    },
+    {
+      "pos": 6,
+      "designation": "556-03-1",
+      "name": "Болт М12х45",
+      "qty": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        10,
+        10,
+        10,
+        10
+      ],
+      "note": "1"
+    },
+    {
+      "pos": 7,
+      "designation": "356-16А",
+      "name": "Болт М6х14",
+      "qty": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        3,
+        3,
+        3,
+        3
+      ],
+      "note": ""
+    },
+    {
+      "pos": 8,
+      "designation": "353-23",
+      "name": "Шайба 6Т65Г05 ГОСТ 6402-70",
+      "qty": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        3,
+        3,
+        3,
+        3
+      ],
+      "note": ""
+    },
+    {
+      "pos": 9,
+      "designation": "525-16-113",
+      "name": "Крышка",
+      "qty": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 10,
+      "designation": "525-16-402",
+      "name": "Кольцо стопорное",
+      "qty": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 11,
+      "designation": "556-11-1",
+      "name": "Болт М14х40",
+      "qty": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        12,
+        12,
+        12,
+        12
+      ],
+      "note": ""
+    },
+    {
+      "pos": 12,
+      "designation": "БЧ",
+      "name": "Шайба 14ОТ65Г019 ГОСТ 6402-70",
+      "qty": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        12,
+        12,
+        12,
+        12
+      ],
+      "note": ""
+    },
+    {
+      "pos": 13,
+      "designation": "525-16-401",
+      "name": "Полумуфта ведущая",
+      "qty": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 14,
+      "designation": "У36-16-14-2",
+      "name": "Вкладыш",
+      "qty": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        16,
+        16,
+        16,
+        16
+      ],
+      "note": ""
+    }
+  ],
+  "footnotes": {
+    "1": "Для реверс-редуктора, соединяемого с кожухом маховика двигателя болтами.",
+    "2": "Для реверс-редуктора, соединяемого с двигателем через шпильки, установленные на кожухе маховика."
+  }
+}

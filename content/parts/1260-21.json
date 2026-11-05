@@ -1,0 +1,16 @@
+{
+  "designation": "1260-21",
+  "name": "Болт М10х38",
+  "type": "Гайки, болты, винты",
+  "models": [
+    "rrp-3d6"
+  ],
+  "figures": {
+    "rrp-300": [],
+    "rrp-3d6": [
+      93
+    ]
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}

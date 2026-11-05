@@ -1,0 +1,16 @@
+{
+  "designation": "330-341",
+  "name": "Гайка М18х1,5",
+  "type": "Гайки, болты, винты",
+  "models": [
+    "rrp-300"
+  ],
+  "figures": {
+    "rrp-300": [
+      3
+    ],
+    "rrp-3d6": []
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}

@@ -1,0 +1,16 @@
+{
+  "designation": "355-06",
+  "name": "Кольцо 12х16 МН4152-62",
+  "type": "Кольца",
+  "models": [
+    "rrp-300"
+  ],
+  "figures": {
+    "rrp-300": [
+      10
+    ],
+    "rrp-3d6": []
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}

@@ -1,0 +1,14 @@
+{
+  "designation": "СБ1225-12-104",
+  "name": "Насос масляный",
+  "type": "Насосы",
+  "models": [
+    "rrp-300"
+  ],
+  "figures": {
+    "rrp-300": [],
+    "rrp-3d6": []
+  },
+  "depends_on_variant": false,
+  "price_rub": 70000
+}

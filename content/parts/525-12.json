@@ -1,0 +1,16 @@
+{
+  "designation": "525-12",
+  "name": "Палец тяги комплект",
+  "type": "Прочие детали",
+  "models": [
+    "rrp-3d6"
+  ],
+  "figures": {
+    "rrp-300": [],
+    "rrp-3d6": [
+      91
+    ]
+  },
+  "depends_on_variant": false,
+  "price_rub": 1200
+}

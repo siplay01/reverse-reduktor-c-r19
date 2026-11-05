@@ -1,0 +1,14 @@
+{
+  "designation": "Подшипник 310",
+  "name": "Подшипник 310",
+  "type": "Подшипники",
+  "models": [
+    "rrp-300"
+  ],
+  "figures": {
+    "rrp-300": [],
+    "rrp-3d6": []
+  },
+  "depends_on_variant": false,
+  "price_rub": 1100
+}

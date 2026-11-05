@@ -1,0 +1,16 @@
+{
+  "designation": "525-109-5",
+  "name": "Крышка",
+  "type": "Крышки и корпуса",
+  "models": [
+    "rrp-3d6"
+  ],
+  "figures": {
+    "rrp-300": [],
+    "rrp-3d6": [
+      94
+    ]
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}

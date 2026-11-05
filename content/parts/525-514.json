@@ -1,0 +1,17 @@
+{
+  "designation": "525-514",
+  "name": "Диск трения ведущий",
+  "type": "Диски",
+  "models": [
+    "rrp-300"
+  ],
+  "figures": {
+    "rrp-300": [
+      11,
+      13
+    ],
+    "rrp-3d6": []
+  },
+  "depends_on_variant": false,
+  "price_rub": 6000
+}

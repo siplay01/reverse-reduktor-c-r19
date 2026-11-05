@@ -1,0 +1,19 @@
+{
+  "designation": "308-99",
+  "name": "Кольцо уплотнительное",
+  "type": "Кольца",
+  "models": [
+    "rrp-3d6",
+    "rrp-300"
+  ],
+  "figures": {
+    "rrp-300": [
+      17
+    ],
+    "rrp-3d6": [
+      98
+    ]
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}

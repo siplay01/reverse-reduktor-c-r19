@@ -1,0 +1,16 @@
+{
+  "designation": "525-546",
+  "name": "Кольцо",
+  "type": "Кольца",
+  "models": [
+    "rrp-300"
+  ],
+  "figures": {
+    "rrp-300": [
+      5
+    ],
+    "rrp-3d6": []
+  },
+  "depends_on_variant": false,
+  "price_rub": 200
+}

@@ -1,0 +1,16 @@
+{
+  "designation": "525-16-401",
+  "name": "Полумуфта ведущая",
+  "type": "Муфты и полумуфты",
+  "models": [
+    "rrp-300"
+  ],
+  "figures": {
+    "rrp-300": [
+      2
+    ],
+    "rrp-3d6": []
+  },
+  "depends_on_variant": true,
+  "price_rub": 63600
+}

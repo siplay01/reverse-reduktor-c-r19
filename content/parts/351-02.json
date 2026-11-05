@@ -1,0 +1,24 @@
+{
+  "designation": "351-02",
+  "name": "Гайка М8",
+  "type": "Гайки, болты, винты",
+  "models": [
+    "rrp-300",
+    "rrp-3d6"
+  ],
+  "figures": {
+    "rrp-300": [
+      3,
+      10,
+      18,
+      19,
+      20
+    ],
+    "rrp-3d6": [
+      89,
+      93
+    ]
+  },
+  "depends_on_variant": true,
+  "price_rub": null
+}

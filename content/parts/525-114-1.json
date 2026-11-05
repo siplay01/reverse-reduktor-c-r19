@@ -1,0 +1,16 @@
+{
+  "designation": "525-114-1",
+  "name": "Стакан подшипника вала заднего хода",
+  "type": "Втулки и стаканы",
+  "models": [
+    "rrp-3d6"
+  ],
+  "figures": {
+    "rrp-300": [],
+    "rrp-3d6": [
+      95
+    ]
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}

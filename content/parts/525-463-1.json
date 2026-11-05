@@ -1,0 +1,16 @@
+{
+  "designation": "525-463-1",
+  "name": "Крышка",
+  "type": "Крышки и корпуса",
+  "models": [
+    "rrp-300"
+  ],
+  "figures": {
+    "rrp-300": [
+      21
+    ],
+    "rrp-3d6": []
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}

@@ -1,0 +1,102 @@
+[
+  {
+    "group": "Руководства по эксплуатации",
+    "items": [
+      {
+        "title": "Руководство по эксплуатации РР-300.РЭ",
+        "product": "РРП-300",
+        "format": "PDF · 24 с. · 3,6 МБ",
+        "links": [
+          {
+            "label": "Открыть",
+            "href": "assets/rr300-rukovodstvo.pdf"
+          }
+        ]
+      },
+      {
+        "title": "Судовые дизели 3Д6 и 7Д6 (В. Ф. Вершинина, З. С. Трумуль, 1972)",
+        "product": "РРП-3Д6",
+        "format": "PDF · скан · 88 с. · 21,2 МБ",
+        "links": [
+          {
+            "label": "Открыть",
+            "href": "assets/3d6-7d6-sudovye-dizeli-1972.pdf"
+          },
+          {
+            "label": "Реверс-редуктор",
+            "href": "assets/3d6-7d6-sudovye-dizeli-1972.pdf#page=25"
+          }
+        ]
+      },
+      {
+        "title": "Руководство по эксплуатации дизелей Д12 (Д12 РЭ)",
+        "product": "РРП-3Д12",
+        "format": "PDF · скан · 235 с. · 11,6 МБ",
+        "links": [
+          {
+            "label": "Открыть",
+            "href": "assets/d12-rukovodstvo-po-ekspluatacii.pdf"
+          },
+          {
+            "label": "Реверс-редуктор",
+            "href": "assets/d12-rukovodstvo-po-ekspluatacii.pdf#page=103"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "group": "Каталоги деталей",
+    "items": [
+      {
+        "title": "Каталог деталей реверс-редуктора РРП-300",
+        "product": "РРП-300",
+        "format": "Сканы · 89 стр.",
+        "links": [
+          {
+            "label": "Листать",
+            "href": "/dokumenty/katalog-rrp-300/"
+          },
+          {
+            "label": "Подбор по каталогу",
+            "href": "/katalog/rrp-300/"
+          }
+        ]
+      },
+      {
+        "title": "Каталог деталей реверс-редуктора РРП-3Д6",
+        "product": "РРП-3Д6",
+        "format": "Чертежи · 10 рис.",
+        "links": [
+          {
+            "label": "Подбор по каталогу",
+            "href": "/katalog/rrp-3d6/"
+          }
+        ]
+      },
+      {
+        "title": "Каталог деталей реверс-редуктора РРП-3Д12",
+        "product": "РРП-3Д12",
+        "soon": true,
+        "links": []
+      },
+      {
+        "title": "Каталог деталей муфт сцепления",
+        "product": "Муфта МС",
+        "soon": true,
+        "links": []
+      }
+    ]
+  },
+  {
+    "group": "Инструкции по ремонту",
+    "items": [
+      {
+        "title": "Инструкции по ремонту реверс-редукторов",
+        "product": "Реверс-редукторы",
+        "soon": true,
+        "links": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,16 @@
+{
+  "designation": "СБ525-07-1",
+  "name": "Кронштейн с пальцами",
+  "type": "Прочие детали",
+  "models": [
+    "rrp-3d6"
+  ],
+  "figures": {
+    "rrp-300": [],
+    "rrp-3d6": [
+      91
+    ]
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}

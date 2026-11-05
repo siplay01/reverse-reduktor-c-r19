@@ -1,0 +1,16 @@
+{
+  "designation": "525-115-1",
+  "name": "Подшипник 7616",
+  "type": "Подшипники",
+  "models": [
+    "rrp-3d6"
+  ],
+  "figures": {
+    "rrp-300": [],
+    "rrp-3d6": [
+      96
+    ]
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}

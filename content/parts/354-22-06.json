@@ -1,0 +1,16 @@
+{
+  "designation": "354-22-06",
+  "name": "Проволока стопорная, L=200 мм",
+  "type": "Прочие детали",
+  "models": [
+    "rrp-300"
+  ],
+  "figures": {
+    "rrp-300": [
+      26
+    ],
+    "rrp-3d6": []
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}

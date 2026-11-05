@@ -1,0 +1,52 @@
+{
+  "model": "rrp-300",
+  "fig": 12,
+  "title": "Упорный диск с ведущей шестерней привода масляного насоса",
+  "image": "assets/6ca7fd098c79-900.webp",
+  "image_large": "assets/6ca7fd098c79-2000.webp",
+  "thumb": "assets/6ca7fd098c79-420.webp",
+  "width": 900,
+  "height": 654,
+  "variants": [
+    "-"
+  ],
+  "rows": [
+    {
+      "pos": 1,
+      "designation": "525-12-110",
+      "name": "Шестерня",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 2,
+      "designation": "525-510",
+      "name": "Диск упорный",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 3,
+      "designation": "353-24",
+      "name": "Шайба 8Т65Г06 ГОСТ 6402-70",
+      "qty": [
+        6
+      ],
+      "note": ""
+    },
+    {
+      "pos": 4,
+      "designation": "556-07",
+      "name": "Болт М8х22",
+      "qty": [
+        6
+      ],
+      "note": ""
+    }
+  ],
+  "footnotes": {}
+}

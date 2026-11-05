@@ -1,0 +1,16 @@
+{
+  "designation": "550-07",
+  "name": "Шпилька М12х60",
+  "type": "Гайки, болты, винты",
+  "models": [
+    "rrp-3d6"
+  ],
+  "figures": {
+    "rrp-300": [],
+    "rrp-3d6": [
+      89
+    ]
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}

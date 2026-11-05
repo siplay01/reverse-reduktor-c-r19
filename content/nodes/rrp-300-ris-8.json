@@ -1,0 +1,97 @@
+{
+  "model": "rrp-300",
+  "fig": 8,
+  "title": "Ступица реверсивной муфты",
+  "image": "assets/9319c1f81d3b-900.webp",
+  "image_large": "assets/9319c1f81d3b-2000.webp",
+  "thumb": "assets/9319c1f81d3b-420.webp",
+  "width": 900,
+  "height": 654,
+  "variants": [
+    "-"
+  ],
+  "rows": [
+    {
+      "pos": 1,
+      "designation": "525-507",
+      "name": "Полукольцо",
+      "qty": [
+        4
+      ],
+      "note": ""
+    },
+    {
+      "pos": 2,
+      "designation": "525-508",
+      "name": "Замок",
+      "qty": [
+        2
+      ],
+      "note": ""
+    },
+    {
+      "pos": 3,
+      "designation": "587-72-5",
+      "name": "Пружина",
+      "qty": [
+        30
+      ],
+      "note": ""
+    },
+    {
+      "pos": 4,
+      "designation": "525-504",
+      "name": "Диск нажимной",
+      "qty": [
+        2
+      ],
+      "note": ""
+    },
+    {
+      "pos": 5,
+      "designation": "525-506",
+      "name": "Кольцо уплотнительное",
+      "qty": [
+        2
+      ],
+      "note": ""
+    },
+    {
+      "pos": 6,
+      "designation": "525-505",
+      "name": "Кольцо уплотнительное",
+      "qty": [
+        2
+      ],
+      "note": ""
+    },
+    {
+      "pos": 7,
+      "designation": "525-503",
+      "name": "Плунжер",
+      "qty": [
+        2
+      ],
+      "note": ""
+    },
+    {
+      "pos": 8,
+      "designation": "525-518-2",
+      "name": "Пружина",
+      "qty": [
+        2
+      ],
+      "note": ""
+    },
+    {
+      "pos": 9,
+      "designation": "СБ525-405",
+      "name": "Ступица",
+      "qty": [
+        1
+      ],
+      "note": ""
+    }
+  ],
+  "footnotes": {}
+}

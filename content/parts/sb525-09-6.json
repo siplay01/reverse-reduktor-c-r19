@@ -1,0 +1,16 @@
+{
+  "designation": "СБ525-09-6",
+  "name": "Бугель шарикоподшипника в сборе",
+  "type": "Прочие детали",
+  "models": [
+    "rrp-3d6"
+  ],
+  "figures": {
+    "rrp-300": [],
+    "rrp-3d6": [
+      92
+    ]
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}

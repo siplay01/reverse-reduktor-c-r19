@@ -1,0 +1,16 @@
+{
+  "designation": "525-108-1",
+  "name": "Роликоподшипник 3610",
+  "type": "Подшипники",
+  "models": [
+    "rrp-3d6"
+  ],
+  "figures": {
+    "rrp-300": [],
+    "rrp-3d6": [
+      95
+    ]
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}

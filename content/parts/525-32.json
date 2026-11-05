@@ -1,0 +1,19 @@
+{
+  "designation": "525-32",
+  "name": "Шайба замковая",
+  "type": "Шайбы",
+  "models": [
+    "rrp-3d6",
+    "rrp-300"
+  ],
+  "figures": {
+    "rrp-300": [
+      7
+    ],
+    "rrp-3d6": [
+      95
+    ]
+  },
+  "depends_on_variant": false,
+  "price_rub": 200
+}

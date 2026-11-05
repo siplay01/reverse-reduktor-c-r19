@@ -1,0 +1,14 @@
+{
+  "designation": "СБ.525-156-2А",
+  "name": "Вал заднего хода с жиклером",
+  "type": "Валы",
+  "models": [
+    "rrp-3d6"
+  ],
+  "figures": {
+    "rrp-300": [],
+    "rrp-3d6": []
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}

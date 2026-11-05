@@ -1,0 +1,16 @@
+{
+  "designation": "525-12-110",
+  "name": "Шестерня",
+  "type": "Шестерни",
+  "models": [
+    "rrp-300"
+  ],
+  "figures": {
+    "rrp-300": [
+      12
+    ],
+    "rrp-3d6": []
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}

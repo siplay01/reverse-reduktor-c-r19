@@ -1,0 +1,16 @@
+{
+  "designation": "525-23-2",
+  "name": "Крышка корпуса",
+  "type": "Крышки и корпуса",
+  "models": [
+    "rrp-3d6"
+  ],
+  "figures": {
+    "rrp-300": [],
+    "rrp-3d6": [
+      89
+    ]
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}

@@ -1,0 +1,16 @@
+{
+  "designation": "584-78-80",
+  "name": "Винт 2М4х6hх12.32 ГОСТ17475-72",
+  "type": "Гайки, болты, винты",
+  "models": [
+    "rrp-300"
+  ],
+  "figures": {
+    "rrp-300": [
+      20
+    ],
+    "rrp-3d6": []
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}

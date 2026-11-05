@@ -1,0 +1,54 @@
+{
+  "model": "rrp-300",
+  "fig": 4,
+  "title": "Крышка реверс-редуктора",
+  "image": "assets/9ea9da2aba2b-900.webp",
+  "image_large": "assets/9ea9da2aba2b-2000.webp",
+  "thumb": "assets/9ea9da2aba2b-420.webp",
+  "width": 900,
+  "height": 654,
+  "variants": [
+    "-"
+  ],
+  "rows": [
+    {
+      "pos": 1,
+      "designation": "525-517",
+      "name": "Винт",
+      "qty": [
+        6
+      ],
+      "note": ""
+    },
+    {
+      "pos": 2,
+      "designation": "354-22-08",
+      "name": "Проволока стопорная, L=300 мм",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 3,
+      "designation": "525-451",
+      "name": "Крышка",
+      "qty": [
+        1
+      ],
+      "note": "1"
+    },
+    {
+      "pos": 4,
+      "designation": "527-82",
+      "name": "Пробка",
+      "qty": [
+        1
+      ],
+      "note": ""
+    }
+  ],
+  "footnotes": {
+    "1": "Допускается изготовление крышки из серого чугуна."
+  }
+}

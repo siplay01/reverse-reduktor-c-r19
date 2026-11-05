@@ -1,0 +1,24 @@
+{
+  "id": "novaya-razrabotka",
+  "slug": "novaya-razrabotka",
+  "name": "Гидравлический реверс-редуктор",
+  "designation": "",
+  "kind": "новая разработка",
+  "order": 6,
+  "status": "new",
+  "picture": "",
+  "picture_small": "",
+  "picture_alt": "",
+  "applicability": "Новая модель в линейке ООО «Дело». Характеристики и сроки выпуска сообщим по запросу.",
+  "key": [],
+  "specs": [],
+  "variants": [],
+  "constructor": {
+    "enabled": false,
+    "groups": []
+  },
+  "seo": {
+    "title": "Новая разработка: гидравлический реверс-редуктор",
+    "description": "Новая модель гидравлического реверс-редуктора в линейке ООО «Дело». Характеристики и сроки по запросу."
+  }
+}

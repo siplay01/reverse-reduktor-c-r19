@@ -1,0 +1,187 @@
+{
+  "model": "rrp-300",
+  "fig": 10,
+  "title": "Гидрораспределитель",
+  "image": "assets/4efc2cae941f-900.webp",
+  "image_large": "assets/4efc2cae941f-2000.webp",
+  "thumb": "assets/4efc2cae941f-420.webp",
+  "width": 900,
+  "height": 654,
+  "variants": [
+    "-"
+  ],
+  "rows": [
+    {
+      "pos": 1,
+      "designation": "356-78",
+      "name": "Болт М8х40",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 2,
+      "designation": "353-24",
+      "name": "Шайба 8Т65Г06 ГОСТ6402-70",
+      "qty": [
+        3
+      ],
+      "note": ""
+    },
+    {
+      "pos": 3,
+      "designation": "525-37-121",
+      "name": "Шайба",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 4,
+      "designation": "СБ525-37-103",
+      "name": "Шкив",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 5,
+      "designation": "346-20",
+      "name": "Пружина клапана перепускного",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 6,
+      "designation": "525-37-114",
+      "name": "Фиксатор",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 7,
+      "designation": "351-02",
+      "name": "Гайка М8",
+      "qty": [
+        2
+      ],
+      "note": ""
+    },
+    {
+      "pos": 8,
+      "designation": "506-100",
+      "name": "Кольцо",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 9,
+      "designation": "525-37-112",
+      "name": "Крышка",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 10,
+      "designation": "525-37-113",
+      "name": "Прокладка",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 11,
+      "designation": "БЧ",
+      "name": "Подшипник 104К ГОСТ8338-75",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 12,
+      "designation": "525-37-111",
+      "name": "Золотник",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 13,
+      "designation": "СБ525-37-102",
+      "name": "Корпус гидрораспределителя",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 14,
+      "designation": "355-08",
+      "name": "Кольцо 18х24 МН4152-62",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 15,
+      "designation": "513-134",
+      "name": "Штуцер",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 16,
+      "designation": "355-06",
+      "name": "Кольцо 12х16 МН4152-62",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 17,
+      "designation": "520Н-46",
+      "name": "Гайка",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 18,
+      "designation": "354-22-07",
+      "name": "Проволока стопорная, L=260 мм",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 19,
+      "designation": "315-64",
+      "name": "Шпонка сегментная",
+      "qty": [
+        1
+      ],
+      "note": ""
+    }
+  ],
+  "footnotes": {}
+}

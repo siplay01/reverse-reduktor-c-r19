@@ -1,0 +1,115 @@
+{
+  "model": "rrp-300",
+  "fig": 18,
+  "title": "Установка масляного насоса реверс-редуктора правого вращения",
+  "image": "assets/fc4165a93adb-900.webp",
+  "image_large": "assets/fc4165a93adb-2000.webp",
+  "thumb": "assets/fc4165a93adb-420.webp",
+  "width": 900,
+  "height": 654,
+  "variants": [
+    "-",
+    "-010",
+    "-001",
+    "-011",
+    "-040",
+    "-041",
+    "-004",
+    "-014",
+    "-005",
+    "-015"
+  ],
+  "rows": [
+    {
+      "pos": 1,
+      "designation": "351-02",
+      "name": "Гайка М8",
+      "qty": [
+        8,
+        8,
+        null,
+        null,
+        8,
+        null,
+        8,
+        8,
+        null,
+        null
+      ],
+      "note": ""
+    },
+    {
+      "pos": 2,
+      "designation": "353-24",
+      "name": "Шайба 8Т65Г06 ГОСТ 6402-70",
+      "qty": [
+        8,
+        8,
+        null,
+        null,
+        8,
+        null,
+        8,
+        8,
+        null,
+        null
+      ],
+      "note": ""
+    },
+    {
+      "pos": 3,
+      "designation": "353-05-1",
+      "name": "Шайба чистая 8",
+      "qty": [
+        8,
+        8,
+        null,
+        null,
+        8,
+        null,
+        8,
+        8,
+        null,
+        null
+      ],
+      "note": ""
+    },
+    {
+      "pos": 4,
+      "designation": "СБ525-415-1",
+      "name": "Крышка",
+      "qty": [
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
+      "note": ""
+    },
+    {
+      "pos": 5,
+      "designation": "СБ525-12-104",
+      "name": "Насос масляный",
+      "qty": [
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
+      "note": ""
+    }
+  ],
+  "footnotes": {}
+}

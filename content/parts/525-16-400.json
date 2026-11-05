@@ -1,0 +1,17 @@
+{
+  "designation": "525-16-400",
+  "name": "Полумуфта ведомая",
+  "type": "Муфты и полумуфты",
+  "models": [
+    "rrp-300"
+  ],
+  "figures": {
+    "rrp-300": [
+      5,
+      6
+    ],
+    "rrp-3d6": []
+  },
+  "depends_on_variant": true,
+  "price_rub": 57800
+}

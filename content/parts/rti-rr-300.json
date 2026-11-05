@@ -1,0 +1,14 @@
+{
+  "designation": "РТИ РРП-300",
+  "name": "Ремкомплект РТИ",
+  "type": "Комплекты и ремкомплекты",
+  "models": [
+    "rrp-300"
+  ],
+  "figures": {
+    "rrp-300": [],
+    "rrp-3d6": []
+  },
+  "depends_on_variant": false,
+  "price_rub": 3500
+}

@@ -1,0 +1,16 @@
+{
+  "designation": "525М-78",
+  "name": "Кольцо стопорное",
+  "type": "Кольца",
+  "models": [
+    "rrp-3d6"
+  ],
+  "figures": {
+    "rrp-300": [],
+    "rrp-3d6": [
+      92
+    ]
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}

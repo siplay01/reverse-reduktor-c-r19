@@ -1,0 +1,14 @@
+{
+  "designation": "СБ.525-03-4",
+  "name": "Барабан муфты",
+  "type": "Прочие детали",
+  "models": [
+    "rrp-3d6"
+  ],
+  "figures": {
+    "rrp-300": [],
+    "rrp-3d6": []
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}

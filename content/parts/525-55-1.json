@@ -1,0 +1,14 @@
+{
+  "designation": "525-55-1",
+  "name": "Подшипник 60214",
+  "type": "Подшипники",
+  "models": [
+    "rrp-3d6"
+  ],
+  "figures": {
+    "rrp-300": [],
+    "rrp-3d6": []
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}

@@ -1,0 +1,17 @@
+{
+  "designation": "У36-16-14-2",
+  "name": "Вкладыш",
+  "type": "Прочие детали",
+  "models": [
+    "rrp-300"
+  ],
+  "figures": {
+    "rrp-300": [
+      1,
+      2
+    ],
+    "rrp-3d6": []
+  },
+  "depends_on_variant": true,
+  "price_rub": 190
+}

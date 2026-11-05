@@ -1,0 +1,28 @@
+{
+  "designation": "553-02-1",
+  "name": "Шайба 12Н65Г05 ГОСТ6402-70",
+  "type": "Шайбы",
+  "models": [
+    "rrp-300",
+    "rrp-3d6"
+  ],
+  "figures": {
+    "rrp-300": [
+      1,
+      2,
+      5,
+      9,
+      14,
+      15
+    ],
+    "rrp-3d6": [
+      93,
+      94,
+      95,
+      96,
+      97
+    ]
+  },
+  "depends_on_variant": true,
+  "price_rub": null
+}

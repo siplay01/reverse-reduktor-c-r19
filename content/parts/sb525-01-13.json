@@ -1,0 +1,17 @@
+{
+  "designation": "СБ525-01-13",
+  "name": "Реверс-редуктор",
+  "type": "Прочие детали",
+  "models": [
+    "rrp-300"
+  ],
+  "figures": {
+    "rrp-300": [
+      1,
+      2
+    ],
+    "rrp-3d6": []
+  },
+  "depends_on_variant": true,
+  "price_rub": 863000
+}

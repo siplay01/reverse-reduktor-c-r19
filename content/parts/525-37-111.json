@@ -1,0 +1,16 @@
+{
+  "designation": "525-37-111",
+  "name": "Золотник",
+  "type": "Прочие детали",
+  "models": [
+    "rrp-300"
+  ],
+  "figures": {
+    "rrp-300": [
+      10
+    ],
+    "rrp-3d6": []
+  },
+  "depends_on_variant": false,
+  "price_rub": 5500
+}

@@ -1,0 +1,88 @@
+{
+  "model": "rrp-300",
+  "fig": 21,
+  "title": "Крышка для датчиков термометров",
+  "image": "assets/478868edebc4-900.webp",
+  "image_large": "assets/478868edebc4-2000.webp",
+  "thumb": "assets/478868edebc4-420.webp",
+  "width": 900,
+  "height": 654,
+  "variants": [
+    "-"
+  ],
+  "rows": [
+    {
+      "pos": 1,
+      "designation": "3327-116",
+      "name": "Гайка",
+      "qty": [
+        2
+      ],
+      "note": ""
+    },
+    {
+      "pos": 2,
+      "designation": "537-87",
+      "name": "Штуцер приемника аэротермометра",
+      "qty": [
+        2
+      ],
+      "note": ""
+    },
+    {
+      "pos": 3,
+      "designation": "413-94А",
+      "name": "Прокладка",
+      "qty": [
+        2
+      ],
+      "note": ""
+    },
+    {
+      "pos": 4,
+      "designation": "525-463-1",
+      "name": "Крышка",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 5,
+      "designation": "525-466",
+      "name": "Кольцо",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 6,
+      "designation": "354-22-07",
+      "name": "Проволока стопорная, L=260 мм",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 7,
+      "designation": "556-13",
+      "name": "Болт М8х12",
+      "qty": [
+        2
+      ],
+      "note": ""
+    },
+    {
+      "pos": 8,
+      "designation": "525-464",
+      "name": "Щиток",
+      "qty": [
+        1
+      ],
+      "note": ""
+    }
+  ],
+  "footnotes": {}
+}

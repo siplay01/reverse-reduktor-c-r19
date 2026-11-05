@@ -1,0 +1,16 @@
+{
+  "designation": "525-25-1",
+  "name": "Кольцо упорное",
+  "type": "Кольца",
+  "models": [
+    "rrp-3d6"
+  ],
+  "figures": {
+    "rrp-300": [],
+    "rrp-3d6": [
+      95
+    ]
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}

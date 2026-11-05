@@ -1,0 +1,14 @@
+{
+  "designation": "525-552 БЧ",
+  "name": "Кольцо упорное Подшипник 3611 ГОСТ5721-75",
+  "type": "Кольца",
+  "models": [
+    "rrp-300"
+  ],
+  "figures": {
+    "rrp-300": [],
+    "rrp-3d6": []
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}

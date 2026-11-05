@@ -1,0 +1,17 @@
+{
+  "designation": "355-08",
+  "name": "Кольцо",
+  "type": "Кольца",
+  "models": [
+    "rrp-300"
+  ],
+  "figures": {
+    "rrp-300": [
+      10,
+      25
+    ],
+    "rrp-3d6": []
+  },
+  "depends_on_variant": false,
+  "price_rub": 40
+}

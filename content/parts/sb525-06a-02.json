@@ -1,0 +1,16 @@
+{
+  "designation": "СБ525-06А-02",
+  "name": "Маслоуказатель",
+  "type": "Прочие детали",
+  "models": [
+    "rrp-300"
+  ],
+  "figures": {
+    "rrp-300": [
+      3
+    ],
+    "rrp-3d6": []
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}

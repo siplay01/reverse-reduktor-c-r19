@@ -1,0 +1,16 @@
+{
+  "designation": "525-99",
+  "name": "Заклепка 6x20",
+  "type": "Гайки, болты, винты",
+  "models": [
+    "rrp-3d6"
+  ],
+  "figures": {
+    "rrp-300": [],
+    "rrp-3d6": [
+      90
+    ]
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}

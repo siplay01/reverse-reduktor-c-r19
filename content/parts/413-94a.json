@@ -1,0 +1,14 @@
+{
+  "designation": "413-94A",
+  "name": "Прокладка",
+  "type": "Прокладки и уплотнения",
+  "models": [
+    "rrp-300"
+  ],
+  "figures": {
+    "rrp-300": [],
+    "rrp-3d6": []
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}

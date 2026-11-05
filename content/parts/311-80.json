@@ -1,0 +1,17 @@
+{
+  "designation": "311-80",
+  "name": "Штифт цилиндрический",
+  "type": "Прочие детали",
+  "models": [
+    "rrp-3d6"
+  ],
+  "figures": {
+    "rrp-300": [],
+    "rrp-3d6": [
+      93,
+      95
+    ]
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}

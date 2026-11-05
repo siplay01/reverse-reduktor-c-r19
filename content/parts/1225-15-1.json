@@ -1,0 +1,14 @@
+{
+  "designation": "1225-15-1",
+  "name": "Тяга среднего диска",
+  "type": "Прочие детали",
+  "models": [
+    "rrp-3d12"
+  ],
+  "figures": {
+    "rrp-300": [],
+    "rrp-3d6": []
+  },
+  "depends_on_variant": false,
+  "price_rub": 1900
+}

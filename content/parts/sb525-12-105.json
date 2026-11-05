@@ -1,0 +1,16 @@
+{
+  "designation": "СБ525-12-105",
+  "name": "Корпус",
+  "type": "Крышки и корпуса",
+  "models": [
+    "rrp-300"
+  ],
+  "figures": {
+    "rrp-300": [
+      20
+    ],
+    "rrp-3d6": []
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}

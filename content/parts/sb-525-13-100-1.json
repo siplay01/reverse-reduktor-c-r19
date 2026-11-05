@@ -1,0 +1,14 @@
+{
+  "designation": "СБ 525-13-100-1",
+  "name": "Фильтр масляный",
+  "type": "Прочие детали",
+  "models": [
+    "rrp-300"
+  ],
+  "figures": {
+    "rrp-300": [],
+    "rrp-3d6": []
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}

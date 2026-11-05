@@ -1,0 +1,16 @@
+{
+  "designation": "525М-77",
+  "name": "Шайба регулировочная",
+  "type": "Шайбы",
+  "models": [
+    "rrp-3d6"
+  ],
+  "figures": {
+    "rrp-300": [],
+    "rrp-3d6": [
+      98
+    ]
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}

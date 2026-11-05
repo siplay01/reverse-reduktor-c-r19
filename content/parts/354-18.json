@@ -1,0 +1,16 @@
+{
+  "designation": "354-18",
+  "name": "Шплинт 4х36 ГОСТ397-79",
+  "type": "Прочие детали",
+  "models": [
+    "rrp-300"
+  ],
+  "figures": {
+    "rrp-300": [
+      20
+    ],
+    "rrp-3d6": []
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}

@@ -1,0 +1,14 @@
+{
+  "designation": "1225М-39",
+  "name": "Шестерня заднего хода ведомая",
+  "type": "Шестерни",
+  "models": [
+    "rrp-3d12"
+  ],
+  "figures": {
+    "rrp-300": [],
+    "rrp-3d6": []
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}

@@ -1,0 +1,16 @@
+{
+  "designation": "1225-40-1",
+  "name": "Вал редуктора ведомый",
+  "type": "Валы",
+  "models": [
+    "rrp-3d6"
+  ],
+  "figures": {
+    "rrp-300": [],
+    "rrp-3d6": [
+      96
+    ]
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}

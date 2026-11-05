@@ -1,0 +1,26 @@
+{
+  "designation": "353-24",
+  "name": "Шайба 8Т65Г06 ГОСТ6402-70",
+  "type": "Шайбы",
+  "models": [
+    "rrp-300",
+    "rrp-3d6"
+  ],
+  "figures": {
+    "rrp-300": [
+      3,
+      5,
+      10,
+      12,
+      18,
+      19
+    ],
+    "rrp-3d6": [
+      89,
+      93,
+      97
+    ]
+  },
+  "depends_on_variant": true,
+  "price_rub": null
+}

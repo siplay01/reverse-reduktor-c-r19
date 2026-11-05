@@ -1,0 +1,14 @@
+{
+  "designation": "525-46-1",
+  "name": "подшипник 60310",
+  "type": "Прочие детали",
+  "models": [
+    "rrp-3d6"
+  ],
+  "figures": {
+    "rrp-300": [],
+    "rrp-3d6": []
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}

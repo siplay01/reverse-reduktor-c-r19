@@ -1,0 +1,16 @@
+{
+  "designation": "СБ525-37-100",
+  "name": "Корпус гидрораспределителя в сборе",
+  "type": "Крышки и корпуса",
+  "models": [
+    "rrp-300"
+  ],
+  "figures": {
+    "rrp-300": [
+      9
+    ],
+    "rrp-3d6": []
+  },
+  "depends_on_variant": false,
+  "price_rub": 48000
+}

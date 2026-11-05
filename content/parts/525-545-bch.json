@@ -1,0 +1,14 @@
+{
+  "designation": "525-545 БЧ",
+  "name": "Втулка распорная",
+  "type": "Втулки и стаканы",
+  "models": [
+    "rrp-300"
+  ],
+  "figures": {
+    "rrp-300": [],
+    "rrp-3d6": []
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}

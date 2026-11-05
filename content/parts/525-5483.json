@@ -1,0 +1,14 @@
+{
+  "designation": "525-5483",
+  "name": "Шайба стопорная",
+  "type": "Шайбы",
+  "models": [
+    "rrp-300"
+  ],
+  "figures": {
+    "rrp-300": [],
+    "rrp-3d6": []
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}

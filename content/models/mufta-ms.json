@@ -1,0 +1,24 @@
+{
+  "id": "mufta-ms",
+  "slug": "mufta-ms",
+  "name": "Муфта сцепления МС",
+  "designation": "",
+  "kind": "муфта сцепления",
+  "order": 5,
+  "status": "info",
+  "picture": "",
+  "picture_small": "",
+  "picture_alt": "",
+  "applicability": "Гидравлическая СБ525-01-14, механическая СБ1226-00-2.",
+  "key": [],
+  "specs": [],
+  "variants": [],
+  "constructor": {
+    "enabled": false,
+    "groups": []
+  },
+  "seo": {
+    "title": "Муфта сцепления МС для судовых реверс-редукторов",
+    "description": "Муфты сцепления: гидравлическая СБ525-01-14 и механическая СБ1226-00-2. ООО «Дело», Барнаул."
+  }
+}

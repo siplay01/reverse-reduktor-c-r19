@@ -1,0 +1,17 @@
+{
+  "designation": "556-05",
+  "name": "Болт М8х16",
+  "type": "Гайки, болты, винты",
+  "models": [
+    "rrp-3d6"
+  ],
+  "figures": {
+    "rrp-300": [],
+    "rrp-3d6": [
+      89,
+      97
+    ]
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}

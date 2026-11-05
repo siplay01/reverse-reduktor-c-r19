@@ -1,0 +1,88 @@
+{
+  "model": "rrp-300",
+  "fig": 24,
+  "title": "Фильтр масляный",
+  "image": "assets/d1f132806ed6-900.webp",
+  "image_large": "assets/d1f132806ed6-2000.webp",
+  "thumb": "assets/d1f132806ed6-420.webp",
+  "width": 900,
+  "height": 654,
+  "variants": [
+    "-"
+  ],
+  "rows": [
+    {
+      "pos": 1,
+      "designation": "515-18",
+      "name": "Штифт",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 2,
+      "designation": "525-13-113",
+      "name": "Шайба",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 3,
+      "designation": "584-66-80",
+      "name": "Пружина",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 4,
+      "designation": "СБ525-13-101-1",
+      "name": "Секция щелевая",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 5,
+      "designation": "525-466",
+      "name": "Кольцо",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 6,
+      "designation": "525-13-110",
+      "name": "Крышка",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 7,
+      "designation": "20-55-13Б",
+      "name": "Кольцо уплотнительное",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 8,
+      "designation": "525-13-111",
+      "name": "Стержень",
+      "qty": [
+        1
+      ],
+      "note": ""
+    }
+  ],
+  "footnotes": {}
+}

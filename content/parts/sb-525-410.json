@@ -1,0 +1,14 @@
+{
+  "designation": "СБ 525-410",
+  "name": "Вал ведущий",
+  "type": "Валы",
+  "models": [
+    "rrp-300"
+  ],
+  "figures": {
+    "rrp-300": [],
+    "rrp-3d6": []
+  },
+  "depends_on_variant": false,
+  "price_rub": 57000
+}

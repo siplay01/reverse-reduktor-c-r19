@@ -1,0 +1,162 @@
+# Decap CMS: edits the JSON files in content/ through git. The site is rebuilt from them (node build.mjs, or CI).
+# Local use: run `npx decap-server` in the project folder, open /admin/ on the local server (local_backend below).
+# Production: needs a GitHub OAuth proxy (see README.md); the host of the site itself does not matter.
+backend:
+  name: github
+  repo: siplay01/reverse-reduktor-c-r19
+  branch: main
+local_backend: true
+locale: ru
+media_folder: public/img/uploads
+public_folder: /img/uploads
+site_url: https://siplay01.github.io/reverse-reduktor-c-r19/
+display_url: https://siplay01.github.io/reverse-reduktor-c-r19/
+collections:
+  - name: settings
+    label: Настройки сайта
+    files:
+      - name: settings
+        label: Главная страница, гарантия, тендеры, контакты
+        file: content/settings.json
+        format: json
+        fields:
+          - label: Первый экран
+            name: hero
+            widget: object
+            fields:
+              - { label: Надпись над заголовком, name: eyebrow, widget: string }
+              - { label: Заголовок, name: title, widget: string }
+              - { label: Подзаголовок, name: lead, widget: text }
+              - { label: Рисунок (большой), name: picture, widget: image }
+              - { label: Рисунок (малый), name: picture_small, widget: image }
+              - { label: Подпись, name: picture_caption, widget: string }
+              - { label: Пояснение к подписи, name: picture_note, widget: string }
+          - label: Гарантия
+            name: warranty
+            widget: object
+            fields:
+              - { label: Срок, мес., name: months, widget: number, value_type: int, min: 1 }
+              - { label: Заголовок, name: title, widget: string }
+              - { label: Текст, name: text, widget: text }
+          - label: Тендеры
+            name: tenders
+            widget: object
+            fields:
+              - { label: Заголовок, name: title, widget: string }
+              - { label: Текст, name: text, widget: text }
+          - { label: Услуги, name: services, widget: list, field: { label: Услуга, name: item, widget: string } }
+          - label: Организация и контакты
+            name: company
+            widget: object
+            fields:
+              - { label: Название сайта, name: brand, widget: string }
+              - { label: Подзаголовок, name: tagline, widget: string }
+              - { label: Организация, name: operator, widget: string }
+              - { label: ИНН, name: inn, widget: string }
+              - { label: КПП, name: kpp, widget: string }
+              - { label: ОГРН, name: ogrn, widget: string }
+              - { label: Телефон для показа, name: phone, widget: string }
+              - { label: Телефон для ссылки (tel), name: tel, widget: string }
+              - { label: E-mail, name: email, widget: string }
+              - { label: Адрес, name: address, widget: string }
+              - { label: Банк, name: bank, widget: string }
+              - { label: БИК, name: bik, widget: string }
+              - { label: Расчётный счёт, name: rs, widget: string }
+              - { label: Корреспондентский счёт, name: ks, widget: string }
+          - label: Поиск (SEO по умолчанию)
+            name: seo
+            widget: object
+            fields:
+              - { label: Название сайта в заголовке, name: site_name, widget: string }
+              - { label: Описание по умолчанию, name: default_description, widget: text }
+          - label: Свидетельство РКО
+            name: cert
+            widget: object
+            fields:
+              - { label: Номер, name: no, widget: string }
+              - { label: Вступает в силу, name: from, widget: string }
+              - { label: Действует до, name: to, widget: string }
+              - { label: Кем выдано, name: issuer, widget: string }
+              - { label: Скан (малый), name: scan, widget: string }
+              - { label: Скан (большой), name: scan_large, widget: string }
+              - { label: PDF, name: pdf, widget: string }
+              - { label: Виды работ, name: scope, widget: list, field: { label: Вид работ, name: item, widget: text } }
+  - name: models
+    label: Продукция (модели)
+    folder: content/models
+    extension: json
+    format: json
+    create: true
+    slug: "{{id}}"
+    identifier_field: name
+    summary: "{{name}} · {{status}}"
+    fields:
+      - { label: Идентификатор, name: id, widget: string, hint: "Латиница, не менять у существующих моделей" }
+      - { label: Адрес страницы (slug), name: slug, widget: string, pattern: ["^[a-z0-9-]+$", "Только латиница, цифры и дефис"] }
+      - { label: Название, name: name, widget: string }
+      - { label: Обозначение по каталогу, name: designation, widget: string, required: false }
+      - { label: Вид, name: kind, widget: string }
+      - { label: Порядок на странице, name: order, widget: number, value_type: int }
+      - { label: Статус, name: status, widget: select, options: [{ label: Готова (есть каталог), value: ready }, { label: NEW (в разработке), value: new }, { label: Информационная карточка, value: info }] }
+      - { label: Рисунок (большой), name: picture, widget: string, required: false, hint: "Путь вида img/rrp300-drawing.webp" }
+      - { label: Рисунок (малый), name: picture_small, widget: string, required: false }
+      - { label: Подпись к рисунку (alt), name: picture_alt, widget: string, required: false }
+      - { label: Применяемость, name: applicability, widget: text }
+      - label: Ключевые параметры (на карточке)
+        name: key
+        widget: list
+        fields: [{ label: Параметр, name: label, widget: string }, { label: Значение, name: value, widget: string }]
+      - label: Характеристики (страница модели)
+        name: specs
+        widget: list
+        fields: [{ label: Параметр, name: label, widget: string }, { label: Значение, name: value, widget: string }]
+      - label: Исполнения
+        name: variants
+        widget: list
+        fields:
+          - { label: Код, name: code, widget: string }
+          - { label: Вращение, name: rotation, widget: string }
+          - { label: Мощность, л.с., name: hp, widget: number, value_type: int }
+          - { label: Передний ход, name: forward, widget: string }
+          - { label: Задний ход, name: reverse, widget: string }
+          - { label: Пальцев в муфте, name: fingers, widget: number, value_type: int }
+      - label: Конструктор исполнения
+        name: constructor
+        widget: object
+        fields:
+          - { label: Включён, name: enabled, widget: boolean }
+          - label: Группы вариантов
+            name: groups
+            widget: list
+            fields:
+              - { label: Ключ (hp, fwd, rev, rot), name: key, widget: string }
+              - { label: Название, name: label, widget: string }
+              - { label: Единица (например " л.с."), name: unit, widget: string, required: false }
+              - { label: Варианты, name: options, widget: list, field: { label: Вариант, name: option, widget: string } }
+      - label: Поиск (SEO)
+        name: seo
+        widget: object
+        fields: [{ label: Заголовок страницы, name: title, widget: string }, { label: Описание, name: description, widget: text }]
+  - name: parts
+    label: Запасные части
+    folder: content/parts
+    extension: json
+    format: json
+    create: true
+    slug: "{{designation}}"
+    identifier_field: designation
+    summary: "{{designation}} · {{name}}"
+    sortable_fields: [designation, name, type, price_rub]
+    fields:
+      - { label: Обозначение, name: designation, widget: string }
+      - { label: Наименование, name: name, widget: string }
+      - { label: Группа, name: type, widget: select, options: [Валы, Шестерни, Диски, Муфты и полумуфты, Подшипники, Втулки и стаканы, Крышки и корпуса, Кольца, Шайбы, "Гайки, болты, винты", Пружины, Прокладки и уплотнения, Насосы, Комплекты и ремкомплекты, Прочие детали] }
+      - { label: Применяется в, name: models, widget: select, multiple: true, options: [rrp-300, rrp-238, rrp-3d6, rrp-3d12] }
+      - label: Рисунки каталога
+        name: figures
+        widget: object
+        fields:
+          - { label: РРП-300, name: rrp-300, widget: list, field: { label: Рис., name: n, widget: number, value_type: int } }
+          - { label: РРП-3Д6, name: rrp-3d6, widget: list, field: { label: Рис., name: n, widget: number, value_type: int } }
+      - { label: Зависит от исполнения, name: depends_on_variant, widget: boolean, required: false }
+      - { label: "Цена за единицу, ₽ (по прайсу 2025 г.)", name: price_rub, widget: number, value_type: int, required: false }

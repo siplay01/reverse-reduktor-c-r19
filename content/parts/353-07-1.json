@@ -1,0 +1,20 @@
+{
+  "designation": "353-07-1",
+  "name": "Шайба чистая 10",
+  "type": "Шайбы",
+  "models": [
+    "rrp-300",
+    "rrp-3d6"
+  ],
+  "figures": {
+    "rrp-300": [
+      22,
+      23
+    ],
+    "rrp-3d6": [
+      92
+    ]
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}

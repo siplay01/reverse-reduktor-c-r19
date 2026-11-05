@@ -1,0 +1,16 @@
+{
+  "designation": "СБ525-150",
+  "name": "Муфта реверсивная",
+  "type": "Прочие детали",
+  "models": [
+    "rrp-3d6"
+  ],
+  "figures": {
+    "rrp-300": [],
+    "rrp-3d6": [
+      90
+    ]
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}

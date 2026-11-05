@@ -1,0 +1,15 @@
+{
+  "designation": "сб1225-05",
+  "name": "Диск трения",
+  "type": "Диски",
+  "models": [
+    "rrp-3d6",
+    "rrp-3d12"
+  ],
+  "figures": {
+    "rrp-300": [],
+    "rrp-3d6": []
+  },
+  "depends_on_variant": false,
+  "price_rub": 14000
+}

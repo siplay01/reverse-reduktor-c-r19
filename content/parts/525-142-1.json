@@ -1,0 +1,16 @@
+{
+  "designation": "525-142-1",
+  "name": "Стакан подшипника вала переднего хода",
+  "type": "Втулки и стаканы",
+  "models": [
+    "rrp-3d6"
+  ],
+  "figures": {
+    "rrp-300": [],
+    "rrp-3d6": [
+      94
+    ]
+  },
+  "depends_on_variant": false,
+  "price_rub": 6000
+}

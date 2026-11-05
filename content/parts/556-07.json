@@ -1,0 +1,21 @@
+{
+  "designation": "556-07",
+  "name": "Болт М8х22",
+  "type": "Гайки, болты, винты",
+  "models": [
+    "rrp-300",
+    "rrp-3d6"
+  ],
+  "figures": {
+    "rrp-300": [
+      5,
+      12
+    ],
+    "rrp-3d6": [
+      91,
+      93
+    ]
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}
