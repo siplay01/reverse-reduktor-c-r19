@@ -19,6 +19,7 @@ const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<
 const u = (p) => BASE + (p.startsWith("/") ? p : "/" + p);                    // site path -> href
 const abs = (p) => SITE_URL + u(p);
 const sku = (s) => `<span class="sku" translate="no">${String(s).split(" ").map((t) => `<span class="nw">${esc(t)}</span>`).join(" ")}</span>`;
+const rel = (p) => String(p || "").replace(/^\/+/, "");                 // admin uploads are stored as /img/uploads/x.webp
 const nf = new Intl.NumberFormat("ru-RU");
 const price = (p) => (p.price_rub ? `${nf.format(p.price_rub)}&nbsp;₽` : `<span class="muted">по запросу</span>`);
 const PRICE_NOTE = "Цены за единицу по прайсу 2025 г., уточняйте при заказе.";
@@ -72,7 +73,8 @@ const orgLd = { "@context": "https://schema.org", "@type": "Organization", name:
 // ---------- cards ----------
 const modelCard = (m) => {
   const n = parts.filter((p) => p.models.includes(m.slug)).length;
-  const pic = m.picture_small ? `<a class="mcard-pic is-art" href="${u(`/produkciya/${m.slug}/`)}" tabindex="-1" aria-hidden="true"><img src="${u("/" + m.picture_small)}" width="640" height="480" alt="${esc(m.picture_alt)}" loading="lazy"></a>`
+  const small = rel(m.picture_small || m.picture);
+  const pic = small ? `<a class="mcard-pic is-art" href="${u(`/produkciya/${m.slug}/`)}" tabindex="-1" aria-hidden="true"><img src="${u("/" + small)}" width="640" height="480" alt="${esc(m.picture_alt)}" loading="lazy"></a>`
     : `<a class="mcard-pic is-soon" href="${u(`/produkciya/${m.slug}/`)}" tabindex="-1" aria-hidden="true">${soonArt()}</a>`;
   if (m.status !== "ready") return `<article class="mcard${m.status === "new" ? " mcard-new" : ""}" id="model-${m.slug}">${pic}<div class="mcard-body"><p class="mcard-kind">${m.status === "new" ? "Новая разработка · в работе" : "Муфта сцепления"}</p>
     <h3 class="mcard-h"><a href="${u(`/produkciya/${m.slug}/`)}">${esc(m.name)}</a>${m.status === "new" ? ' <span class="badge badge-new">NEW</span>' : ""}</h3><p class="mcard-app">${esc(m.applicability)}</p>
@@ -90,7 +92,7 @@ const cfgBlock = (m) => !m.constructor?.enabled ? "" : `<div class="cfg" data-co
   const h = S.hero;
   const body = `<section class="hero"><div class="hero-txt"><p class="eyebrow">${esc(h.eyebrow)}</p><h1>${esc(h.title)}</h1><p class="hero-lead">${esc(h.lead)}</p>
     <p class="hero-btns"><a class="btn btn-white" href="${u("/katalog/")}">Найти запчасть <span aria-hidden="true">↗</span></a><a class="btn btn-line" href="#produkciya">Посмотреть оборудование</a></p></div>
-    <figure class="hero-pic is-art"><img src="${u("/" + h.picture_small)}" srcset="${u("/" + h.picture_small)} 640w, ${u("/" + h.picture)} 1600w" sizes="(min-width: 900px) 50vw, 100vw" width="1600" height="1200" alt="Реверс-редукторная передача РРП-300, технический рисунок" fetchpriority="high"><figcaption><b>${esc(h.picture_caption)}</b><span>${esc(h.picture_note)}</span></figcaption></figure></section>
+    <figure class="hero-pic is-art"><img src="${u("/" + rel(h.picture_small || h.picture))}" srcset="${u("/" + rel(h.picture_small || h.picture))} 640w, ${u("/" + rel(h.picture))} 1600w" sizes="(min-width: 900px) 50vw, 100vw" width="1600" height="1200" alt="Реверс-редукторная передача РРП-300, технический рисунок" fetchpriority="high"><figcaption><b>${esc(h.picture_caption)}</b><span>${esc(h.picture_note)}</span></figcaption></figure></section>
   ${S.new_product?.enabled ? `<section class="newband" aria-labelledby="new-h"><div class="wrap newband-in"><p class="newband-label" aria-hidden="true">${esc(S.new_product.label)}</p>
     <div class="newband-txt"><p class="newband-kicker">${esc(S.new_product.kicker)}</p><h2 id="new-h">${esc(S.new_product.title)}</h2><p>${esc(S.new_product.text)}</p><p><a class="btn btn-white" href="${esc(S.new_product.link)}">${esc(S.new_product.button)} <span aria-hidden="true">↗</span></a></p></div></div></section>` : ""}
   <section class="sec sec-models" id="produkciya" aria-labelledby="models-h"><div class="wrap"><h2 id="models-h">Модельный ряд</h2><div class="models">${models.map(modelCard).join("")}</div></div></section>
@@ -117,7 +119,7 @@ for (const m of models) {
   const vars = m.variants.length ? `<div class="tbl"><table class="vtab"><caption>Исполнения</caption><thead><tr><th scope="col">Исполнение</th><th scope="col">Вращение</th><th scope="col">л.с.</th><th scope="col">Вперёд</th><th scope="col">Назад</th><th scope="col">Муфта</th></tr></thead><tbody>${m.variants.map((v) => `<tr><td>${sku(m.designation + (v.code === "-" ? "" : v.code))}</td><td>${esc(v.rotation)}</td><td>${v.hp}</td><td>${esc(v.forward)}</td><td>${esc(v.reverse)}</td><td>${v.fingers}-пальцевая</td></tr>`).join("")}</tbody></table></div>` : "";
   const figs = (FIGS[m.slug] || []).map((f) => `<figure class="gfig"><div class="sheet"><img src="${u("/" + f.image)}" width="${f.width}" height="${f.height}" alt="${esc(f.title)}" loading="lazy"></div><figcaption><b>${esc(f.title)}</b>${f.pdf_page ? ` <a class="gdoc" href="${u(m.slug === "rrp-3d6" ? "/assets/3d6-7d6-sudovye-dizeli-1972.pdf" : "/assets/d12-rukovodstvo-po-ekspluatacii.pdf")}${f.pdf_page}" target="_blank" rel="noopener">Чертёж в руководстве (PDF)</a>` : ""}
     <details class="gleg"><summary>Позиции на чертеже (${f.legend.length})</summary><table class="spec legend plain"><thead><tr><th scope="col" class="c-pos">Поз.</th><th scope="col">Наименование</th></tr></thead><tbody>${f.legend.map((r) => `<tr><td class="c-pos nw">${esc(r.pos)}</td><td>${esc(r.name)}</td></tr>`).join("")}</tbody></table></details></figcaption></figure>`).join("");
-  const pic = m.picture ? `<figure class="model-pic"><img src="${u("/" + m.picture)}" width="1600" height="1200" alt="${esc(m.picture_alt)}" fetchpriority="high"></figure>` : `<figure class="model-pic is-soon">${soonArt()}</figure>`;
+  const pic = m.picture ? `<figure class="model-pic"><img src="${u("/" + rel(m.picture))}" width="1600" height="1200" alt="${esc(m.picture_alt)}" fetchpriority="high"></figure>` : `<figure class="model-pic is-soon">${soonArt()}</figure>`;
   const n = parts.filter((p) => p.models.includes(m.slug)).length;
   const cta = m.status === "ready" ? `<a class="btn btn-white" href="${u(`/katalog/${m.slug}/`)}">Запчасти ${esc(m.name)} (${n})</a>` : "";
   const contact = `<a class="btn btn-line" href="mailto:${esc(C.email)}?subject=${encodeURIComponent(m.name)}">Написать на ${esc(C.email)}</a> <a class="btn btn-line" href="tel:${esc(C.tel)}">${esc(C.phone)}</a>`;
@@ -125,7 +127,7 @@ for (const m of models) {
     <div class="model-grid">${pic}<div class="model-info"><p class="mcard-kind">${m.status === "ready" ? cap(m.kind) + " реверс-редуктор" : cap(m.kind)}</p><p>${esc(m.applicability)}</p>${tabs}<p class="mcard-btns">${cta} ${contact}</p></div></div>
     ${vars}${m.constructor?.enabled ? `<section class="sec-cfg-in" aria-labelledby="cfg-h"><h2 id="cfg-h">Конструктор исполнения</h2>${cfgBlock(m)}</section>` : ""}${figs ? `<section aria-labelledby="fig-h"><h2 id="fig-h" class="sr">Чертежи</h2><div class="node-fig">${figs}</div></section>` : ""}</div>`;
   const ld = [crumbLd([["Продукция", "/#produkciya"], [m.name]]),
-    ...(m.status === "ready" ? [{ "@context": "https://schema.org", "@type": "Product", name: `Реверс-редукторная передача ${m.name}`, sku: m.designation, description: m.seo.description, brand: { "@type": "Brand", name: C.operator }, manufacturer: { "@type": "Organization", name: C.operator }, ...(m.picture ? { image: abs("/" + m.picture) } : {}) }] : [])];
+    ...(m.status === "ready" ? [{ "@context": "https://schema.org", "@type": "Product", name: `Реверс-редукторная передача ${m.name}`, sku: m.designation, description: m.seo.description, brand: { "@type": "Brand", name: C.operator }, manufacturer: { "@type": "Organization", name: C.operator }, ...(m.picture ? { image: abs("/" + rel(m.picture)) } : {}) }] : [])];
   page({ url: `/produkciya/${m.slug}/`, title: m.seo.title, description: m.seo.description, section: "produkciya", body, ld });
 }
 
@@ -136,7 +138,7 @@ const partsTable = (list, m) => `<div class="tools"><label class="tool-f"><span 
 page({ url: "/katalog/", title: "Запасные части для судовых реверс-редукторов: каталог", description: "Каталог запасных частей для реверс-редукторных передач РРП-300, РРП-238, РРП-3Д6, РРП-3Д12 с чертежами и перечнями деталей. ООО «Дело», Барнаул.", section: "katalog",
   body: `<div class="wrap cat">${crumbs([["Запасные части"]])}${head1("Запасные части", `<a class="all-link" href="${u("/katalog/vse/")}">Все запчасти одним списком (${parts.length})</a>`, "", "art-gear")}<div class="models-sm">${withCat.map((m) => {
     const n = parts.filter((p) => p.models.includes(m.slug)).length, nn = nodesOf(m.slug).length;
-    return `<article class="mcard mcard-sm"><a class="mcard-pic${m.picture_small ? " is-art" : " is-soon"}" href="${u(`/katalog/${m.slug}/`)}" tabindex="-1" aria-hidden="true">${m.picture_small ? `<img src="${u("/" + m.picture_small)}" width="640" height="480" alt="" loading="lazy">` : soonArt()}</a><div class="mcard-body"><p class="mcard-kind">${cap(m.kind)} реверс-редуктор</p><h2 class="mcard-h"><a href="${u(`/katalog/${m.slug}/`)}">${esc(m.name)} ${sku(m.designation)}</a></h2><p class="mcard-app">${nn ? `${nn} узлов с чертежами, ` : ""}${n} позиций</p><p class="mcard-btns"><a class="btn btn-white btn-sm" href="${u(`/katalog/${m.slug}/`)}">Каталог запчастей</a></p></div></article>`;
+    return `<article class="mcard mcard-sm"><a class="mcard-pic${(m.picture_small || m.picture) ? " is-art" : " is-soon"}" href="${u(`/katalog/${m.slug}/`)}" tabindex="-1" aria-hidden="true">${(m.picture_small || m.picture) ? `<img src="${u("/" + rel(m.picture_small || m.picture))}" width="640" height="480" alt="" loading="lazy">` : soonArt()}</a><div class="mcard-body"><p class="mcard-kind">${cap(m.kind)} реверс-редуктор</p><h2 class="mcard-h"><a href="${u(`/katalog/${m.slug}/`)}">${esc(m.name)} ${sku(m.designation)}</a></h2><p class="mcard-app">${nn ? `${nn} узлов с чертежами, ` : ""}${n} позиций</p><p class="mcard-btns"><a class="btn btn-white btn-sm" href="${u(`/katalog/${m.slug}/`)}">Каталог запчастей</a></p></div></article>`;
   }).join("")}</div></div>`, ld: [crumbLd([["Запасные части"]])] });
 page({ url: "/katalog/vse/", title: "Все запасные части: единый список", description: `Единый список ${parts.length} запасных частей для реверс-редукторов РРП-300, РРП-238, РРП-3Д6, РРП-3Д12: обозначение, наименование, применяемость.`, section: "katalog",
   body: `<div class="wrap cat">${crumbs([["Запасные части", "/katalog/"], ["Все запчасти"]])}${head1(`Все запчасти (${parts.length})`)}${partsTable(parts, null)}</div>`, ld: [crumbLd([["Запасные части", "/katalog/"], ["Все запчасти"]])] });

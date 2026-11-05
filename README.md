@@ -15,6 +15,7 @@ Revision 19 of the site (2026-11-04). Same look as `v6-demo/c-r18`, rebuilt so i
 node build.mjs                      # build into dist/ (root-domain build, noindex)
 node scripts/serve.mjs 4341         # serve dist/ at http://localhost:4341/
 node qa/static-check.mjs            # structure, SEO tags, every internal link, sitemap, РРП names
+node qa/owner-flow.mjs              # simulates the owner editing (photo, price removed/added, text) and checks the built site
 node qa/test.mjs                    # browser tests (Chromium + WebKit, 1360 and 390 px) + admin loads (needs internet for the CDN)
 ```
 

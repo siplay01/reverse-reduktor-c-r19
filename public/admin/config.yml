@@ -27,8 +27,8 @@ collections:
               - { label: Надпись над заголовком, name: eyebrow, widget: string }
               - { label: Заголовок, name: title, widget: string }
               - { label: Подзаголовок, name: lead, widget: text }
-              - { label: Рисунок (большой), name: picture, widget: image }
-              - { label: Рисунок (малый), name: picture_small, widget: image }
+              - { label: Рисунок на первом экране, name: picture, widget: image }
+              - { label: Рисунок на первом экране (малый, необязательно), name: picture_small, widget: image, required: false }
               - { label: Подпись, name: picture_caption, widget: string }
               - { label: Пояснение к подписи, name: picture_note, widget: string }
           - label: Большой баннер NEW (новый продукт)
@@ -119,8 +119,8 @@ collections:
       - { label: Вид, name: kind, widget: string }
       - { label: Порядок на странице, name: order, widget: number, value_type: int }
       - { label: Статус, name: status, widget: select, options: [{ label: Готова (есть каталог), value: ready }, { label: NEW (в разработке), value: new }, { label: Информационная карточка, value: info }] }
-      - { label: Рисунок (большой), name: picture, widget: string, required: false, hint: "Путь вида img/rrp300-drawing.webp" }
-      - { label: Рисунок (малый), name: picture_small, widget: string, required: false }
+      - { label: Рисунок или фото изделия, name: picture, widget: image, required: false, hint: "Нажмите «Выбрать изображение» и загрузите файл с компьютера. Лучше горизонтальный, не тяжелее 1-2 МБ." }
+      - { label: Рисунок для карточки (необязательно, если пусто, берётся основной), name: picture_small, widget: image, required: false }
       - { label: Подпись к рисунку (alt), name: picture_alt, widget: string, required: false }
       - { label: Применяемость, name: applicability, widget: text }
       - label: Ключевые параметры (на карточке)
