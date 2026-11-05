@@ -40,3 +40,5 @@ body.static .c-ap { font-size: 14px; }
 .newband p { color: #fff; max-width: 60ch; }
 .newband .btn-white { color: #7d0d1d; }
 @media (max-width: 800px) { .newband-in { grid-template-columns: 1fr; gap: 16px; padding-block: 28px; } }
+.newband .btn { background: #fff; color: #7d0d1d; border-color: #fff; }
+.newband .btn:hover { background: #f3d9dd; }
