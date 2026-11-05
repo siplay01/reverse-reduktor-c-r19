@@ -181,22 +181,26 @@ page({ url: "/dokumenty/", title: "Техническая документаци
 page({ url: "/dokumenty/katalog-rrp-300/", title: "Каталог деталей РРП-300: сканы страниц", description: `Сканы ${SCANS.length} страниц каталога деталей реверс-редукторной передачи РРП-300.`, section: "dokumenty",
   body: `<div class="wrap cat">${crumbs([["Техническая документация", "/dokumenty/"], ["Каталог деталей РРП-300"]])}${head1("Каталог деталей РРП-300: сканы страниц", "", `${SCANS.length} страниц. Нажмите страницу, чтобы открыть её в полном размере.`)}<ul class="scans">${SCANS.map((s) => `<li><a href="${u("/" + s.full)}" target="_blank" rel="noopener"><img src="${u("/" + s.thumb)}" width="420" height="305" alt="Страница ${s.n}: ${esc(s.title)}" loading="lazy"><span>${s.n}. ${esc(s.title)}</span></a></li>`).join("")}</ul></div>`, ld: [] });
 
-// ---------- contacts: how to find us (Yandex map loaded on click only) ----------
+// ---------- contacts: how to find us (own annotated maps, always visible; Yandex only as links and an optional frame) ----------
 {
   const K = S.contacts, ll = `${K.lon}%2C${K.lat}`;
   const widget = `https://yandex.ru/map-widget/v1/?ll=${ll}&z=${K.zoom}&pt=${ll}%2Cpm2rdm`;
   const open = `https://yandex.ru/maps/?ll=${ll}&z=${K.zoom}&pt=${ll}`, route = `https://yandex.ru/maps/?rtext=~${K.lat}%2C${K.lon}&rtt=auto`;
-  const body = `<div class="wrap cat">${crumbs([["Как нас найти"]])}${head1("Как нас найти", "", `${esc(C.operator)}, ${esc(C.address)}`)}
-    <div class="find">
-      <div class="find-map" data-map data-src="${widget}"><div class="find-facade"><p class="find-addr">${esc(C.address)}</p>
-        <p><button type="button" class="btn btn-white" data-map-load>Показать карту</button></p>
-        <p class="muted small">Карту предоставляет Яндекс. При загрузке карты Яндекс может получать данные о вашем посещении. Без нажатия кнопки карта не загружается.</p></div></div>
-      <aside class="find-info"><h2>Контакты</h2>
-        <dl class="req part-kv"><div><dt>Адрес</dt><dd>${esc(C.address)}</dd></div><div><dt>Телефон</dt><dd><a href="tel:${esc(C.tel)}">${esc(C.phone)}</a></dd></div><div><dt>E-mail</dt><dd><a href="mailto:${esc(C.email)}">${esc(C.email)}</a></dd></div>${K.hours ? `<div><dt>Часы работы</dt><dd>${esc(K.hours)}</dd></div>` : ""}</dl>
-        <p class="find-btns"><a class="btn btn-white" href="${route}" target="_blank" rel="noopener">Построить маршрут</a> <a class="btn btn-line" href="${open}" target="_blank" rel="noopener">Открыть в Яндекс.Картах</a></p>
-        ${K.directions ? `<h2>Как добраться</h2><p class="find-dir">${esc(K.directions).replace(/\n/g, "<br>")}</p>` : ""}</aside>
-    </div></div>`;
-  page({ url: "/kontakty/", title: "Как нас найти: контакты и схема проезда", description: `${C.operator}: адрес, телефон, e-mail и карта проезда. ${C.address}.`, section: "kontakty", body,
+  const fig = (src, n, title, alt, lazy) => `<figure class="find-fig"><a href="${u(src)}" target="_blank" rel="noopener"><img src="${u(src)}" width="1400" height="860" alt="${esc(alt)}"${lazy ? ' loading="lazy"' : ""}></a><figcaption><b>${n}. ${esc(title)}</b> Карта: © участники <a href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap</a>. Нажмите, чтобы открыть крупнее.</figcaption></figure>`;
+  const body = `<div class="wrap cat find-page">${crumbs([["Как нас найти"]])}${head1("Как нас найти", "", `${esc(C.operator)}, ${esc(C.address)}`)}
+    <section class="find-top" aria-label="Адрес и маршрут">
+      <div class="find-card"><p class="find-k">Адрес</p><p class="find-addr">${esc(C.address)}</p>
+        <dl class="find-kv"><div><dt>Телефон</dt><dd><a href="tel:${esc(C.tel)}">${esc(C.phone)}</a></dd></div><div><dt>E-mail</dt><dd><a href="mailto:${esc(C.email)}">${esc(C.email)}</a></dd></div>${K.hours ? `<div><dt>Часы работы</dt><dd>${esc(K.hours)}</dd></div>` : ""}</dl></div>
+      <div class="find-card"><p class="find-k">Маршрут</p>
+        <p class="find-btns"><a class="btn btn-white" href="${route}" target="_blank" rel="noopener">Построить маршрут в Яндекс.Картах</a><a class="btn btn-line" href="${open}" target="_blank" rel="noopener">Открыть на Яндекс.Картах</a></p>
+        <ul class="find-lm">${K.landmarks.map((t) => `<li>${esc(t)}</li>`).join("")}</ul>${K.directions ? `<p class="find-dir"><b>Как добраться.</b> ${esc(K.directions).replace(/\n/g, "<br>")}</p>` : ""}</div>
+    </section>
+    ${fig("/img/map-close.webp", 1, "Участок и ближайшие улицы.", "Крупный план: здание ООО «Дело» (ул. Зоотехническая, 24) отмечено красным, подсвечены ул. Зоотехническая и ул. Герцена", false)}
+    ${fig("/img/map-district.webp", 2, "Район и основные дороги.", "Обзорная карта: расположение ООО «Дело» в районе Южный, подсвечены Змеиногорский тракт и Южный тракт, на севере виден центр Барнаула", true)}
+    <details class="find-live" data-map data-src="${widget}"><summary>Интерактивная карта Яндекса</summary><div class="find-facade"><p><button type="button" class="btn btn-white" data-map-load>Показать карту</button></p>
+      <p class="muted small">Карту предоставляет Яндекс. При загрузке Яндекс может получать данные о вашем посещении. Если карта не показалась, откройте её <a href="${open}" target="_blank" rel="noopener">на Яндекс.Картах</a>.</p></div></details>
+  </div>`;
+  page({ url: "/kontakty/", title: "Как нас найти: контакты и схема проезда", description: `${C.operator}: адрес, телефон, e-mail, схема проезда и карта района Южный, Барнаул. ${C.address}.`, section: "kontakty", body,
     ld: [{ ...orgLd, geo: { "@type": "GeoCoordinates", latitude: K.lat, longitude: K.lon } }, crumbLd([["Как нас найти"]])] });
 }
 

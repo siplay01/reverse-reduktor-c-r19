@@ -35,7 +35,7 @@ Why Sveltia: it supports token sign-in (Decap does not), its local mode needs no
 
 ## Contacts page
 
-`/kontakty/` («Как нас найти»): address, phone, e-mail, buttons «Построить маршрут» and «Открыть в Яндекс.Картах», and the Yandex map widget. The map loads only after a click on «Показать карту» (Yandex sets its own cookies). Coordinates (53.2563675, 83.7063668) come from a one-time OpenStreetMap lookup of the address and were checked on the Yandex map; they and the optional «Как добраться» text are editable in the admin. Directions text and working hours are empty until the owner supplies them (nothing is invented).
+`/kontakty/` («Как нас найти»): address, phone, e-mail, route buttons that open Yandex Maps in a new tab, and two annotated maps that are plain images (they always show, no third-party code): a close-up with building No. 24 in red and the highlighted streets (ул. Зоотехническая, ул. Герцена), and a district map with Змеиногорский тракт and Южный тракт. Both are rendered from OpenStreetMap tiles and road/building geometry (© участники OpenStreetMap, credited on the page) by `node scripts/map/make-map.mjs` (needs internet; geometry cached in `scripts/map/osm-data.json`). An optional interactive Yandex map sits in a collapsed block and loads only after a click; a fallback link covers browsers that block it. Coordinates (53.2563675, 83.7063668) come from a one-time OSM lookup of the address and were checked on the Yandex map. The «Ориентиры» list, the «Как добраться» text and working hours are editable in the admin; directions and hours are empty until the owner supplies them (entrances and routes are not invented).
 
 ## Content rules kept from earlier revisions
 

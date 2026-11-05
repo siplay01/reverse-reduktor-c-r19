@@ -64,6 +64,7 @@ collections:
               - { label: Долгота, name: lon, widget: number, value_type: float }
               - { label: Масштаб карты (1-19), name: zoom, widget: number, value_type: int, min: 1, max: 19 }
               - { label: Часы работы, name: hours, widget: string, required: false }
+              - { label: Ориентиры (список строк рядом с картой), name: landmarks, widget: list, required: false, field: { label: Строка, name: item, widget: string } }
               - { label: Как добраться (текст схемы проезда), name: directions, widget: text, required: false }
           - label: Организация и контакты
             name: company

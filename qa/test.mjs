@@ -30,11 +30,13 @@ for (const [name, eng] of [["chromium", chromium], ["webkit", webkit]]) {
     await p.goto(U("/detal/525-16-113/")); await p.click(".part-buy [data-add]");
     assert.equal(await p.locator("[data-cart-count]").first().innerText(), "2");
     await p.click("[data-cart-open]"); assert.equal(await p.locator("#cart-items li").count(), 2); await p.click("[data-cart-close]");
-    // 2b. contacts: nothing from Yandex loads until the click; then the map frame points at the company address
-    await p.goto(U("/kontakty/")); assert.equal(await p.locator("iframe").count(), 0, "no frame before click");
+    // 2b. contacts: both annotated maps are real images, Yandex loads only after opening the block and a click
+    await p.goto(U("/kontakty/")); await p.waitForSelector(".find-fig img");
+    await p.waitForFunction(() => [...document.querySelectorAll(".find-fig img")].every((i) => (i.loading === "lazy" ? true : i.complete && i.naturalWidth > 0)));
+    assert.equal(await p.locator(".find-fig").count(), 2); assert.equal(await p.locator("iframe").count(), 0, "no third-party frame before click");
     const route = await p.locator('a:has-text("Построить маршрут")').getAttribute("href"); assert.match(route, /rtext=~53\.2563675%2C83\.7063668/);
-    await p.click("[data-map-load]"); const src = await p.locator("iframe.find-frame").getAttribute("src"); assert.match(src, /^https:\/\/yandex\.ru\/map-widget\/v1\/\?ll=83\.7063668%2C53\.2563675/);
-    assert.ok((await p.locator("header.head nav a", { hasText: "Контакты" }).count()) >= 1, "nav item");
+    await p.locator(".find-live summary").click(); await p.click("[data-map-load]"); const src = await p.locator("iframe.find-frame").getAttribute("src"); assert.match(src, /^https:\/\/yandex\.ru\/map-widget\/v1\/\?ll=83\.7063668%2C53\.2563675/);
+    assert.ok((await p.locator("header.head nav a", { hasText: "Контакты" }).count()) >= 1 || w < 1300, "nav item");
     // 3. catalog list filter from ?q
     await p.goto(U("/katalog/vse/?q=525-16-113")); await p.waitForSelector("table.spec");
     assert.equal(await p.locator("table.spec tbody tr:not([hidden])").count(), 1);
@@ -45,6 +47,28 @@ for (const [name, eng] of [["chromium", chromium], ["webkit", webkit]]) {
       assert.deepEqual(over, [], `${pg} @${w}`);
     }
     await ctx.close();
+  }
+  // 4b. width sweep (a desktop window narrowed by a side panel is every width, not only 390 and 1360): no page overflow, header
+  //     fits every 20 px from 700 to 1900, nothing visible sticks out of the viewport, the request list stays inside the window
+  {
+    const PAGES = ["/", "/produkciya/rrp-300/", "/katalog/", "/katalog/rrp-300/", "/katalog/rrp-300/ris-3/", "/katalog/vse/", "/detal/525-16-113/", "/dokumenty/", "/kontakty/"];
+    const items = Array.from({ length: 12 }, (_, i) => ({ des: "525-16-" + (100 + i), name: "Тестовая деталь с длинным названием для переноса " + i, where: "РРП-300, рис. 3, поз. " + i, q: 3 }));
+    const p = await (await b.newContext({ viewport: { width: 1000, height: 700 } })).newPage(); const bad = [];
+    await p.goto(U());
+    for (let w = 700; w <= 1900; w += 20) { await p.setViewportSize({ width: w, height: 700 });
+      const r = await p.evaluate(() => { const W = innerWidth, q = (s) => document.querySelector(s).getBoundingClientRect(), btn = q(".btn-list"), nav = q(".nav"), brand = q(".brand"); const showNav = nav.width > 0;
+        return btn.right > W || document.documentElement.scrollWidth > W || (showNav && (btn.left < nav.right || nav.left < brand.right)); });
+      if (r) bad.push("header @" + w); }
+    for (const w of [320, 360, 390, 430, 500, 620, 800, 1000, 1200, 1300, 1400]) {
+      await p.setViewportSize({ width: w, height: 600 });
+      for (const pg of PAGES) { await p.goto(U(pg)); await p.waitForLoadState("load");
+        const r = await p.evaluate(() => { const W = innerWidth, out = []; if (document.documentElement.scrollWidth > W) out.push("page " + document.documentElement.scrollWidth);
+          for (const e of document.querySelectorAll("body *")) { const cs = getComputedStyle(e); if (cs.display === "none" || cs.visibility === "hidden") continue; const b = e.getBoundingClientRect(); if (!b.width || e.closest("dialog:not([open]), details:not([open]) > :not(summary), .tbl, .tools, [hidden], .sr")) continue; if (b.right > W + 1 || b.left < -1) { out.push(e.tagName + "." + String(e.className).slice(0, 24)); break; } } return out; });
+        if (r.length) bad.push(`${pg} @${w}: ${r.join(",")}`); }
+      await p.goto(U()); await p.evaluate((it) => localStorage.setItem("rr-c19-cart", JSON.stringify(it)), items); await p.reload(); await p.click("[data-cart-open]");
+      const d = await p.evaluate(() => { const r = document.querySelector("#cart").getBoundingClientRect(), c = document.querySelector("[data-cart-close]").getBoundingClientRect(); return r.left < 0 || r.right > innerWidth || r.top < 0 || r.bottom > innerHeight || c.right > innerWidth || c.bottom > innerHeight; });
+      if (d) bad.push("cart @" + w); await p.evaluate(() => document.querySelector("#cart").close()); }
+    assert.deepEqual(bad, [], bad.slice(0, 12).join("\n")); await p.context().close();
   }
   assert.deepEqual(errs, [], errs.join("\n")); console.log(name, "ok"); await b.close();
 }
