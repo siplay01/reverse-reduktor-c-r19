@@ -24,10 +24,11 @@ Build options (environment): `SITE_URL` (absolute address for canonical and site
 
 Two admins read the same `public/admin/config.yml` and the same `content/` files:
 
-- `/admin/` = **Sveltia CMS** (primary, pinned 0.255.0): modern UI, Russian when the browser language is Russian, works on a phone. Two ways to use it:
+- `/admin/` = chooser page with links to both editors (for demos and comparison).
+- `/admin-sveltia/` = **Sveltia CMS** (pinned 0.255.0): modern UI, Russian when the browser language is Russian, works on a phone. Two ways to use it:
   - **On the published site (any browser):** «Sign In Using Access Token», paste a GitHub fine-grained token with Contents (read/write) on this repository. Every save becomes a commit on `main`; the Pages workflow rebuilds and republishes in about a minute. No OAuth server needed. The token stays in that browser only.
-  - **Locally (Chrome, Edge or Brave only, not Safari or Firefox):** `node build.mjs && node scripts/serve.mjs 4341`, open http://localhost:4341/admin/, «Work with Local Repository», pick this folder. Edits go to the files; rebuild and reload to see them.
-- `/admin-decap/` = **Decap CMS** (fallback, pinned 3.17.1): needs `npx decap-server` in this folder for local editing (`local_backend: true`); production login needs an OAuth proxy.
+  - **Locally (Chrome, Edge or Brave only, not Safari or Firefox):** `node build.mjs && node scripts/serve.mjs 4341`, open http://localhost:4341/admin-sveltia/, «Work with Local Repository», pick this folder. Edits go to the files; rebuild and reload to see them.
+- `/admin-decap/` = **Decap CMS** (pinned 3.17.1): needs `npx decap-server` in this folder for local editing (`local_backend: true`); production login needs an OAuth proxy.
 
 Collections: «Настройки сайта» (hero, big NEW banner, warranty, tenders, map coordinates and directions text, company, SEO), «Продукция (модели)», «Запасные части» (377 + new).
 

@@ -1,4 +1,19 @@
 <!doctype html>
 <html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex"><title>Админка · Реверс-редуктор</title></head>
-<body><script src="https://unpkg.com/@sveltia/cms@0.255.0/dist/sveltia-cms.js"></script></body></html>
+<meta name="robots" content="noindex"><title>Админка · выбор · Реверс-редуктор</title>
+<style>:root{color-scheme:light}body{margin:0;font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;background:#f5f5f2;color:#102b3a}
+main{max-width:980px;margin:0 auto;padding:32px 16px}h1{margin:0 0 8px;font-size:28px}.lead{margin:0 0 24px;max-width:70ch}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.card{background:#fff;border:1px solid #d9dde0;border-top:3px solid #b78e5a;padding:24px}
+.card h2{margin:0 0 4px;font-size:22px}.tag{margin:0 0 16px;color:#4a5a62}.btn{display:inline-block;background:#174758;color:#fff;text-decoration:none;font-weight:650;padding:12px 20px;border-radius:3px;min-height:20px}
+.btn:focus-visible{outline:3px solid #b78e5a;outline-offset:2px}dl{margin:16px 0 0}dt{font-weight:650;margin-top:12px}dd{margin:2px 0 0}
+.note{margin-top:24px;color:#4a5a62}a{color:#174758}@media(max-width:760px){.grid{grid-template-columns:1fr}}</style></head>
+<body><main><h1>Админка сайта</h1>
+<p class="lead">Два редактора с одинаковыми полями. Оба меняют одни и те же файлы в папке <code>content/</code>, поэтому то, что вы правите в одном, видно в другом. Откройте оба и сравните.</p>
+<div class="grid">
+<section class="card" aria-labelledby="a"><h2 id="a">Админка A: Sveltia CMS</h2><p class="tag">Проект с 2023 года, лицензия MIT.</p><p><a class="btn" href="../admin-sveltia/">Открыть A</a></p>
+<dl><dt>Вход на опубликованном сайте</dt><dd>по персональному токену GitHub, без отдельного сервера.</dd>
+<dt>Работа с локальными файлами</dt><dd>кнопка «Work with Local Repository», только Chrome, Edge или Brave. Запуск <code>decap-server</code> не нужен.</dd></dl></section>
+<section class="card" aria-labelledby="b"><h2 id="b">Админка B: Decap CMS</h2><p class="tag">Проект с 2015 года (бывший Netlify CMS), лицензия MIT.</p><p><a class="btn" href="../admin-decap/">Открыть B</a></p>
+<dl><dt>Вход на опубликованном сайте</dt><dd>через GitHub и отдельный сервис авторизации (OAuth), который пока не поднят.</dd>
+<dt>Работа с локальными файлами</dt><dd>в Терминале запущен <code>npx decap-server</code>, браузер любой.</dd></dl></section></div>
+<p class="note">Страницы A и B читают общий файл <code>config.yml</code>. Правки на опубликованном сайте попадают в репозиторий GitHub и после пересборки видны на сайте.</p></main></body></html>

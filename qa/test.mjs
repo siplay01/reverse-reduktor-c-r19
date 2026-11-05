@@ -81,17 +81,19 @@ async function adminPage(b, url, loginName) {
 }
 {
   const b = await chromium.launch();
-  // 5a. Sveltia (primary, /admin/): collections, create a part through the form, it shows in the list
-  let { p, errs } = await adminPage(b, "/admin/", /Test Repository|тестов/i);
+  // 5a. Sveltia (/admin-sveltia/): collections, create a part through the form, it shows in the list
+  const ch = await (await b.newContext()).newPage(); await ch.goto(U("/admin/"));
+  assert.equal(await ch.locator('a.btn[href="../admin-sveltia/"]').count(), 1); assert.equal(await ch.locator('a.btn[href="../admin-decap/"]').count(), 1); await ch.close();
+  let { p, errs } = await adminPage(b, "/admin-sveltia/", /Test Repository|тестов/i);
   for (const t of ["Настройки сайта", "Продукция (модели)", "Запасные части"]) await p.getByText(t, { exact: true }).first().waitFor({ timeout: 30000 });
-  await p.goto(U("/admin/#/collections/parts/new"));
+  await p.goto(U("/admin-sveltia/#/collections/parts/new"));
   await p.getByRole("textbox", { name: /Обозначение/ }).fill("999-TEST-1"); await p.getByRole("textbox", { name: /Наименование/ }).fill("Тестовая деталь");
   await p.getByRole("combobox", { name: /Группа/ }).click(); await p.getByRole("option", { name: "Кольца" }).click(); await p.getByRole("checkbox", { name: "rrp-300" }).check();
-  await p.getByRole("button", { name: "Сохранить" }).click(); await p.goto(U("/admin/#/collections/parts"));
+  await p.getByRole("button", { name: "Сохранить" }).click(); await p.goto(U("/admin-sveltia/#/collections/parts"));
   await p.getByText("999-TEST-1").first().waitFor({ timeout: 15000 });
   if (process.env.ADMIN_SHOT) await p.screenshot({ path: process.env.ADMIN_SHOT });
   assert.deepEqual(errs, [], errs.join("\n")); console.log("admin (Sveltia) ok");
-  // 5b. Decap (fallback, /admin-decap/): loads, lists the collections, new-part form has the fields
+  // 5b. Decap (/admin-decap/): loads, lists the collections, new-part form has the fields
   ({ p, errs } = await adminPage(b, "/admin-decap/", "Войти"));
   await p.waitForSelector('a[href^="#/collections/"]', { timeout: 30000 }); const side = await p.locator('a[href^="#/collections/"]').allInnerTexts();
   for (const t of ["Настройки сайта", "Продукция (модели)", "Запасные части"]) assert.ok(side.some((x) => x.includes(t)), t);
