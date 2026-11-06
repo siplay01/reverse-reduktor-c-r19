@@ -14,7 +14,7 @@ for (const [name, eng] of [["chromium", chromium], ["webkit", webkit]]) {
     for (const n of ["РРП-300", "РРП-238", "РРП-3Д6", "РРП-3Д12", "12 месяцев", "Тендеры"]) assert.ok(text.includes(n), n);
     assert.equal(await p.locator(".mcard-spec", { hasText: "Гарантия" }).count(), 4);
     assert.equal(await p.locator(".models .mcard").last().getAttribute("id"), "model-novaya-razrabotka");
-    assert.equal(await p.locator("#model-novaya-razrabotka .badge-new").evaluate((e) => getComputedStyle(e).backgroundColor), "rgb(179, 18, 42)");
+    assert.equal((await p.locator("#model-novaya-razrabotka .stamp, #model-novaya-razrabotka .is-newbig span").first().innerText()).trim(), "NEW");
     await p.locator("label.cfg-o", { hasText: "150" }).click(); await p.locator("label.cfg-o", { hasText: "1:2,95" }).first().click();
     await p.locator("label.cfg-o", { hasText: "1:2,62" }).click(); await p.locator("label.cfg-o", { hasText: "левое" }).click();
     await p.evaluate(() => localStorage.removeItem("rr-c19-cart")); await p.click("[data-cfg-add]");
@@ -40,6 +40,27 @@ for (const [name, eng] of [["chromium", chromium], ["webkit", webkit]]) {
     // 3. catalog list filter from ?q
     await p.goto(U("/katalog/vse/?q=525-16-113")); await p.waitForSelector("table.spec");
     assert.equal(await p.locator("table.spec tbody tr:not([hidden])").count(), 1);
+    // 3b. review fixes: count hidden until the first add, catalog search, variant picker, sticky head never over rows, stamp inside its block, one sentence once
+    await p.goto(U()); await p.evaluate(() => localStorage.removeItem("rr-c19-cart")); await p.reload();
+    assert.equal(await p.locator("[data-cart-count]").first().isHidden(), true, "count hidden while the list is empty");
+    await p.goto(U("/detal/525-16-113/")); await p.click(".part-buy [data-add]");
+    assert.equal(await p.locator("[data-cart-count]").first().isVisible(), true, "count shown after the first add");
+    await p.evaluate(() => localStorage.removeItem("rr-c19-cart"));
+    await p.goto(U("/katalog/")); await p.fill("#cs", "525-16-113"); await p.press("#cs", "Enter"); await p.waitForURL("**/katalog/vse/?q=525-16-113");
+    assert.equal(await p.locator("table.spec tbody tr:not([hidden])").count(), 1, "catalog search finds the part");
+    await p.goto(U("/katalog/rrp-300/ris-1/"));
+    const qcol = w >= 700 ? "table.spec th.c-q:visible" : "table.spec tbody tr:first-child td.c-q:visible";
+    assert.equal(await p.locator(qcol).count(), 1, "one quantity column");
+    await p.selectOption("#vsel", { index: 1 }); assert.match(await p.locator("table.spec [data-v='1']:visible").first().innerText(), /-010|^[\d—–-]+$/);
+    if (w >= 700) assert.equal(await p.evaluate(() => { const t = document.querySelector(".tbl"); return t.scrollWidth <= t.clientWidth + 1; }), true, "figure table fits its box");
+    if (w >= 1000) {
+      await p.goto(U("/katalog/vse/")); await p.fill("[data-filter]", "1225-48");
+      assert.equal(await p.evaluate(() => { const th = document.querySelector(".tbl thead th").getBoundingClientRect(), r = [...document.querySelectorAll(".tbl tbody tr")].find((x) => x.offsetParent).getBoundingClientRect(); return th.bottom <= r.top + 1; }), true, "table head sits above the found row");
+    }
+    await p.goto(U("/produkciya/novaya-razrabotka/"));
+    assert.equal(await p.evaluate(() => { const f = document.querySelector(".model-pic").getBoundingClientRect(), s = document.querySelector(".stamp").getBoundingClientRect(); return s.left >= f.left && s.right <= f.right && s.top >= f.top && s.bottom <= f.bottom; }), true, "stamp is not cropped");
+    assert.equal(await p.locator("p", { hasText: "Новая модель в линейке" }).count(), 1, "sentence once");
+    await p.goto(U("/katalog/")); assert.ok((await p.locator(".mcard-app", { hasText: "3 позиции" }).count()) === 1, "plural 3 позиции");
     // 4. no horizontal overflow on the main page types
     for (const pg of ["/", "/produkciya/rrp-300/", "/katalog/", "/katalog/rrp-300/", "/katalog/rrp-300/ris-3/", "/detal/525-16-113/", "/dokumenty/", "/kontakty/"]) {
       await p.goto(U(pg)); await p.waitForLoadState("load");

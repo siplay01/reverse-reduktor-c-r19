@@ -10,7 +10,9 @@
   function add(des, name, where, q = 1) { const it = cart.find((c) => c.des === des && c.where === where); if (it) it.q += q; else cart.push({ des, name, where, q }); save(); toast(`${des}: ${q} шт. в списке запроса`); }
   const cartText = () => cart.map((c, i) => `${i + 1}. ${c.des} ${c.name} (${c.where}), ${c.q} шт.`).join("\n");
   function renderCart() {
-    $$("[data-cart-count]").forEach((el) => { el.textContent = cart.reduce((s, c) => s + c.q, 0); });
+    const total = cart.reduce((s, c) => s + c.q, 0);
+    $$("[data-cart-count]").forEach((el) => { el.textContent = total; el.hidden = total === 0; });
+    $$("[data-cart-open]").forEach((el) => el.setAttribute("aria-label", total ? `Список запроса, всего ${total} шт.` : "Список запроса"));
     $("#cart-empty").hidden = cart.length > 0; $$("#cart [data-need-items]").forEach((b) => { b.disabled = !cart.length; });
     $("#cart-items").innerHTML = cart.map((c, i) => `<li><div><span class="sku" translate="no">${esc(c.des)}</span><span>${esc(c.name)}</span><small>${esc(c.where)}</small></div><label class="sr" for="cq${i}">Количество, ${esc(c.des)}</label><input id="cq${i}" type="number" min="1" inputmode="numeric" value="${c.q}" data-q="${i}"><button type="button" class="cart-x" data-x="${i}" aria-label="Убрать ${esc(c.des)}">×</button></li>`).join("");
   }
@@ -45,6 +47,20 @@
     if (t.closest("[data-cart-mail]")) location.href = `mailto:${$("#cart").dataset.mail}?subject=${encodeURIComponent("Запрос запчастей, реверс-редукторы")}&body=${encodeURIComponent(`Здравствуйте!\n\nПрошу сообщить наличие, цену и срок поставки:\n\n${cartText()}\n\nОрганизация:\nКонтактное лицо:\nТелефон:\n`)}`;
     if (t.closest("[data-copy-req]")) navigator.clipboard.writeText($$("#req div").map((d) => `${d.querySelector("dt").textContent}: ${d.querySelector("dd").textContent}`).join("\n")).then(() => toast("Реквизиты скопированы"), () => toast("Не удалось скопировать: выделите реквизиты вручную"));
   });
+  // ---- variant picker on figure pages: show one quantity column; the choice is remembered for the session
+  const vtab = $("[data-vtable]"), vsel = $("[data-variant]"), VKEY = "rr-c19-variant";
+  function showVariant(i) {
+    vtab.classList.remove("cmp"); vtab.classList.add("vsel");
+    $$("[data-v]", vtab).forEach((c) => { c.hidden = c.dataset.v !== String(i); });
+    $$("tbody tr", vtab).forEach((tr) => { const c = tr.querySelector(`td[data-v="${i}"]`); tr.classList.toggle("na", !!c && /^[—–-]$/.test(c.textContent.trim())); });
+  }
+  if (vtab && vsel) {
+    let saved = null; try { saved = sessionStorage.getItem(VKEY); } catch {}
+    const idx = [...vsel.options].findIndex((o) => o.textContent.split(" (")[0] === saved);
+    if (idx > 0) vsel.selectedIndex = idx;
+    showVariant(vsel.selectedIndex);
+    vsel.addEventListener("change", () => { showVariant(vsel.selectedIndex); try { sessionStorage.setItem(VKEY, vsel.selectedOptions[0].textContent.split(" (")[0]); } catch {} });
+  }
   document.addEventListener("input", (e) => { if (e.target.matches("[data-filter]")) filterRows(e.target); });
   document.addEventListener("change", (e) => {
     const t = e.target;

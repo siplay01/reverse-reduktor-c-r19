@@ -33,6 +33,6 @@ const rb = fs.readFileSync(path.join(DIST, "robots.txt"), "utf8");
 if (INDEX ? !rb.includes("Sitemap:") : !rb.includes("Disallow: /")) bad("robots.txt does not match INDEX");
 // 4. content rules
 const home = fs.readFileSync(path.join(DIST, "index.html"), "utf8");
-for (const t of ["РРП-300", "РРП-238", "РРП-3Д6", "РРП-3Д12", "badge badge-new", "12 месяцев", "Тендеры"]) if (!home.includes(t)) bad(`home lacks ${t}`);
+for (const t of ["РРП-300", "РРП-238", "РРП-3Д6", "РРП-3Д12", ">NEW<", "12 месяцев", "Тендеры"]) if (!home.includes(t)) bad(`home lacks ${t}`);
 if (errs.length) { console.error(errs.slice(0, 40).join("\n"), `\n${errs.length} problem(s)`); process.exit(1); }
 console.log(`static check ok: ${pages.length} pages, ${hrefs.size} distinct internal links, sitemap ${pages.length - 1} urls`);

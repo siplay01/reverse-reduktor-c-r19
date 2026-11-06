@@ -29,8 +29,12 @@ body.static .c-ap { font-size: 14px; }
 @media (max-width: 800px) { .part-kv > div { grid-template-columns: 1fr; gap: 4px; } }
 
 .node > *, .model-grid > *, .part-grid > * { min-width: 0; }
-.tbl { overflow-x: auto; max-width: 100%; }
-.node .node-spec .tbl, .cat .tbl { overflow-x: auto; max-height: none; }
+/* wide tables scroll inside their box only on narrower screens; above 1300 px the head stays sticky against the page */
+@media (max-width: 1300px) {
+  .tbl { overflow-x: auto; max-width: 100%; }
+  .node .node-spec .tbl, .cat .tbl { overflow-x: auto; max-height: none; }
+  .spec th { position: static; }
+}
 /* big NEW banner under the hero */
 .newband { background: #b3122a; color: #fff; }
 .newband-in { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 48px; align-items: center; padding-block: 40px; }
@@ -67,3 +71,63 @@ body.static .c-ap { font-size: 14px; }
 .model-info .mcard-btns .btn { white-space: normal; max-width: 100%; overflow-wrap: anywhere; text-align: center; }
 @media (max-width: 400px) { .mcard-sm { grid-template-columns: 1fr; } .mcard-sm .mcard-pic { min-height: 140px; } }
 .find-btns .btn { white-space: normal; max-width: 100%; overflow-wrap: anywhere; }
+
+/* big red NEW instead of a picture on the new-product card */
+.mcard-pic.is-newbig { display: grid; place-items: center; background: #b3122a; min-height: 220px; text-decoration: none; }
+.mcard-pic.is-newbig span { color: #fff; font-weight: 800; letter-spacing: -.02em; line-height: 1; font-size: clamp(72px, 9vw, 112px); }
+.model-pic.is-newbig { display: grid; place-items: center; background: #b3122a; padding: 32px 0; }
+.model-pic.is-newbig span { color: #fff; font-weight: 800; line-height: 1; font-size: clamp(96px, 20vw, 220px); }
+
+/* stamp variant: big red rotated stamp over the placeholder drawing */
+.is-stamp { position: relative; overflow: hidden; }
+.stamp { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) rotate(-9deg); color: #b3122a; font-weight: 800; line-height: 1; letter-spacing: .04em; font-size: clamp(64px, 8vw, 104px); padding: .08em .22em .12em; border: .09em solid #b3122a; border-radius: .14em; box-shadow: inset 0 0 0 .035em #fff, inset 0 0 0 .07em #b3122a; background: #ffffffcc; opacity: .94; mix-blend-mode: normal; pointer-events: none; }
+.model-pic.is-stamp .stamp { font-size: clamp(90px, 16vw, 190px); }
+.mcard-pic.is-newbig span { white-space: nowrap; }
+.is-stamp .sa-soon, .is-stamp .sa-veil { display: none; }
+
+/* ---- c-r19 review fixes ---- */
+/* stamp fits its block */
+.stamp { font-size: clamp(56px, 6.6vw, 92px); }
+.model-pic.is-stamp .stamp { font-size: clamp(56px, 11vw, 150px); }
+/* header list button: icon always, number only when the list is not empty */
+.bl-ico { width: 20px; height: 20px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }
+.btn-list .count { min-width: 1.4em; padding: 0 6px; border-radius: 99px; background: #fff; color: var(--action); font-size: 14px; line-height: 1.5; text-align: center; }
+.btn-list { min-height: 44px; }
+/* variant picker on figure pages */
+.var-pick { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin: 0 0 12px; }
+.var-pick label { font-weight: 700; }
+.var-pick select { min-height: 44px; padding: 0 12px; border: 1px solid var(--line); border-radius: 6px; background: #fff; color: inherit; font: inherit; max-width: 100%; }
+.vsel td.c-q, .vsel th.c-q { text-align: right; font-size: 15px; padding-left: 8px; padding-right: 12px; white-space: nowrap; }
+.spec tr.na td { opacity: .6; }
+.spec tr.na .c-buy { opacity: 1; }
+/* catalog search */
+.cat-search { display: flex; gap: 8px; margin: 0 0 24px; max-width: 640px; }
+.cat-search input { flex: 1 1 auto; min-width: 0; min-height: 48px; padding: 0 14px; border: 1px solid var(--line); border-radius: 6px; background: #fff; font: inherit; font-size: 16px; color: inherit; }
+.cat-search .btn { flex: none; }
+/* request buttons: bigger on the part page, not tiny in tables */
+.btn-add { min-height: 36px; padding: 4px 12px; }
+.buy input { height: 36px; }
+.part-buy .buy { margin-top: 12px; gap: 10px; }
+.part-buy .btn-add { min-height: 48px; padding: 0 24px; font-size: 16px; background: var(--action); color: var(--action-ink); }
+.part-buy .btn-add:hover { filter: brightness(1.11); }
+.part-buy .buy input { width: 72px; height: 48px; font-size: 16px; }
+.part-buy a[href^="tel"] { white-space: nowrap; }
+/* one rounding rule: controls 6 px, containers 12 px */
+.cfg-o span { border-radius: 6px; }
+.cfg-res, .term, .part-buy, .part-kv, .find-card, .find-fig, .find-live, .tile, .model-pic, .scans img, .ar-list, .cert { border-radius: 12px; }
+.model-pic, .find-fig, .ar-list { overflow: hidden; }
+.tile img, .scans img { border-radius: 8px; }
+/* readable eyebrow on white */
+.sec-cfg .eyebrow { color: #795328; }
+/* footer */
+.foot-req dd { font-weight: 500; }
+.linkish { min-height: 44px; display: inline-flex; align-items: center; }
+@media (max-width: 800px) { .strip-r { padding: 13px 0; margin: -13px 0; } }
+/* phone: the count sits on the icon corner, so the header keeps its width with any number */
+@media (max-width: 800px) {
+  .btn-list { position: relative; }
+  .btn-list .count { position: absolute; top: -7px; right: -7px; min-width: 22px; padding: 0 5px; font-size: 12px; font-weight: 700; line-height: 20px; box-shadow: 0 0 0 2px var(--panel, #fff), inset 0 0 0 1px var(--action); }
+}
+@media (min-width: 801px) { .ar-list li { grid-template-columns: 22px minmax(0, 1fr) 8em 15em auto; } }
+@media (max-width: 700px) { .vsel td.c-q { text-align: left; padding: 0; font-size: 14px; } .var-pick { padding: 0 2px; } }
+.part-kv > div:first-child { border-top: 0; }

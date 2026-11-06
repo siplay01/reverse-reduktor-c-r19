@@ -10,7 +10,7 @@ try {
   edit("content/models/rr238.json", (m) => { m.picture = "/img/uploads/owner-test.webp"; m.picture_small = ""; });           // photo uploaded through the admin
   edit("content/parts/525-16-113.json", (p) => { p.price_rub = null; });                                                 // price removed
   edit("content/parts/525-453.json", (p) => { p.price_rub = 1234; });                                                    // price added
-  edit("content/settings.json", (s) => { s.new_product.title = "Заголовок, изменённый владельцем"; s.warranty.months = 24; });  // text changed
+  edit("content/settings.json", (s) => { s.hero.title = "Заголовок, изменённый владельцем"; s.warranty.months = 24; });  // text changed
   execFileSync("node", ["build.mjs"], { cwd: R, stdio: "pipe" });
   const read = (p) => fs.readFileSync(f("dist/" + p + "/index.html"), "utf8");
   const home = read(""), model = read("produkciya/rrp-238"), p1 = read("detal/525-16-113"), p2 = read("detal/525-453");
