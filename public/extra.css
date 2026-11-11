@@ -136,19 +136,3 @@ body.static .c-ap { font-size: 14px; }
 .cart-lab { font-weight: 650; font-size: 15px; }
 .cart-text { width: 100%; font: 14px/1.45 ui-monospace, Menlo, monospace; padding: 10px; border: 1px solid var(--line); border-radius: var(--r); background: var(--panel); color: inherit; resize: vertical; min-height: 140px; }
 .cart-send .small { margin: 0; }
-
-/* c-r20: services as a plain list (no link per row), contact buttons under it */
-.sv8-row { display: grid; grid-template-columns: 80px 1fr; align-items: center; gap: 12px; min-height: 80px; padding: 16px 0; color: var(--ink); }
-.sv8-ask { color: var(--sub); margin: 20px 0 12px; max-width: 60ch; }
-.sv8-btns { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 8px; }
-@media (max-width: 900px) { .sv8-row { grid-template-columns: 48px 1fr; min-height: 64px; } }
-
-/* c-r20: constructor status line (serial variant or made to order) */
-.cfg-st { display: grid; gap: 4px; margin: 0 0 16px; padding: 12px 14px; border-radius: 6px; border: 1px solid var(--line); background: #fff; font-size: 15px; }
-.cfg-st b { font-size: 16px; }
-.cfg-st.is-serial { border-color: #2e6b3a; }
-.cfg-st.is-serial b { color: #2e6b3a; }
-.cfg-st.is-order b { color: #7a4a00; }
-@media (min-width: 801px) { .cfg-res { position: sticky; top: 96px; } }
-/* c-r20: NEW stamp in the corner when the card has a real drawing */
-.stamp.is-corner, .model-pic.is-stamp .stamp.is-corner { left: auto; top: 12px; right: 12px; transform: rotate(-9deg); font-size: clamp(28px, 3vw, 40px); }

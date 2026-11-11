@@ -6,10 +6,10 @@
   "kind": "гидравлический",
   "order": 2,
   "status": "ready",
-  "picture": "img/models/rrp238-foto.webp",
-  "picture_small": "img/models/rrp238-foto-640.webp",
-  "picture_alt": "Реверс-редукторная передача РРП-238, фото",
-  "applicability": "дизели ЯМЗ-238 и их модификации",
+  "picture": "",
+  "picture_small": "",
+  "picture_alt": "",
+  "applicability": "Дизель ЯМЗ-238 и их модификации",
   "key": [
     {
       "label": "Мощность",
@@ -25,13 +25,13 @@
     },
     {
       "label": "Масса",
-      "value": "460 кг"
+      "value": "450 кг"
     }
   ],
   "specs": [
     {
       "label": "Применяемость",
-      "value": "дизели ЯМЗ-238 и их модификации"
+      "value": "Дизель ЯМЗ-238 и их модификации"
     },
     {
       "label": "Полная мощность",
@@ -51,20 +51,13 @@
     },
     {
       "label": "Масса",
-      "value": "460 кг (РР-300-238), в сухом состоянии"
+      "value": "450 кг"
     }
   ],
   "variants": [],
   "constructor": {
-    "enabled": true,
-    "preset": {
-      "engine": "серия ЯМЗ",
-      "type": "гидравлический",
-      "hp": "300",
-      "rpm": "1500",
-      "fwd": "1:2,04",
-      "rev": "1:2,18"
-    }
+    "enabled": false,
+    "groups": []
   },
   "seo": {
     "title": "РРП-238: реверс-редукторная передача, характеристики и запчасти",

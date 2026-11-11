@@ -6,9 +6,9 @@
   "kind": "механический",
   "order": 4,
   "status": "ready",
-  "picture": "img/models/rrp3d12-foto.webp",
-  "picture_small": "img/models/rrp3d12-foto-640.webp",
-  "picture_alt": "Реверс-редукторная передача РРП-3Д12, фото",
+  "picture": "",
+  "picture_small": "",
+  "picture_alt": "",
   "applicability": "дизели 3Д12 и их модификации, а также совместимые модели (3Д6, ЯМЗ)",
   "key": [
     {
@@ -68,15 +68,8 @@
   ],
   "variants": [],
   "constructor": {
-    "enabled": true,
-    "preset": {
-      "engine": "3Д12",
-      "type": "механический",
-      "hp": "300",
-      "rpm": "1500",
-      "fwd": "1:2,95",
-      "rev": "1:2,18"
-    }
+    "enabled": false,
+    "groups": []
   },
   "seo": {
     "title": "РРП-3Д12: реверс-редукторная передача, характеристики и запчасти",
