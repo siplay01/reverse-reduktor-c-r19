@@ -6,9 +6,9 @@
   "kind": "механический",
   "order": 3,
   "status": "ready",
-  "picture": "",
-  "picture_small": "",
-  "picture_alt": "",
+  "picture": "img/models/rrp3d6-foto.webp",
+  "picture_small": "img/models/rrp3d6-foto-640.webp",
+  "picture_alt": "Реверс-редукторная передача РРП-3Д6, фото",
   "applicability": "дизели 3Д6 и их модификации",
   "key": [
     {
@@ -68,8 +68,15 @@
   ],
   "variants": [],
   "constructor": {
-    "enabled": false,
-    "groups": []
+    "enabled": true,
+    "preset": {
+      "engine": "3Д6",
+      "type": "механический",
+      "hp": "150",
+      "rpm": "1500",
+      "fwd": "1:3,07",
+      "rev": "1:2,04"
+    }
   },
   "seo": {
     "title": "РРП-3Д6: реверс-редукторная передача, характеристики и запчасти",

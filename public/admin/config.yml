@@ -56,6 +56,21 @@ collections:
               - { label: Заголовок, name: title, widget: string }
               - { label: Текст, name: text, widget: text }
           - { label: Услуги, name: services, widget: list, field: { label: Услуга, name: item, widget: string } }
+          - { label: Текст под списком услуг, name: services_note, widget: text, required: false }
+          - label: Конструктор РРП (главная и страницы моделей)
+            name: constructor
+            widget: object
+            fields:
+              - { label: Заголовок, name: title, widget: string }
+              - { label: Пояснение, name: lead, widget: text }
+              - label: Поля выбора
+                name: groups
+                widget: list
+                fields:
+                  - { label: Ключ (не менять у существующих), name: key, widget: string }
+                  - { label: Название, name: label, widget: string }
+                  - { label: Единица (например " л.с."), name: unit, widget: string, required: false }
+                  - { label: Варианты, name: options, widget: list, field: { label: Вариант, name: option, widget: string } }
           - label: Как нас найти (карта и проезд)
             name: contacts
             widget: object
@@ -141,19 +156,22 @@ collections:
           - { label: Передний ход, name: forward, widget: string }
           - { label: Задний ход, name: reverse, widget: string }
           - { label: Пальцев в муфте, name: fingers, widget: number, value_type: int }
-      - label: Конструктор исполнения
+      - label: Конструктор на странице модели
         name: constructor
         widget: object
         fields:
-          - { label: Включён, name: enabled, widget: boolean }
-          - label: Группы вариантов
-            name: groups
-            widget: list
+          - { label: Показывать, name: enabled, widget: boolean }
+          - label: Значения по умолчанию
+            name: preset
+            widget: object
+            required: false
             fields:
-              - { label: Ключ (hp, fwd, rev, rot), name: key, widget: string }
-              - { label: Название, name: label, widget: string }
-              - { label: Единица (например " л.с."), name: unit, widget: string, required: false }
-              - { label: Варианты, name: options, widget: list, field: { label: Вариант, name: option, widget: string } }
+              - { label: Применяемый ДВС, name: engine, widget: string, required: false }
+              - { label: Тип РРП, name: type, widget: string, required: false }
+              - { label: Мощность, name: hp, widget: string, required: false }
+              - { label: Обороты, name: rpm, widget: string, required: false }
+              - { label: Передний ход, name: fwd, widget: string, required: false }
+              - { label: Задний ход, name: rev, widget: string, required: false }
       - label: Поиск (SEO)
         name: seo
         widget: object

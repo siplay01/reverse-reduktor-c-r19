@@ -6,9 +6,9 @@
   "kind": "гидравлический",
   "order": 1,
   "status": "ready",
-  "picture": "img/rrp300-drawing.webp",
-  "picture_small": "img/rrp300-drawing-640.webp",
-  "picture_alt": "Реверс-редукторная передача РРП-300, технический рисунок",
+  "picture": "img/models/rrp300-foto.webp",
+  "picture_small": "img/models/rrp300-foto-640.webp",
+  "picture_alt": "Реверс-редукторная передача РРП-300, фото",
   "applicability": "дизели 3Д6, 3Д12, ЯМЗ и их модификации",
   "key": [
     {
@@ -158,45 +158,14 @@
   ],
   "constructor": {
     "enabled": true,
-    "groups": [
-      {
-        "key": "hp",
-        "label": "Мощность",
-        "unit": " л.с.",
-        "options": [
-          "150",
-          "300"
-        ]
-      },
-      {
-        "key": "fwd",
-        "label": "Передаточное отношение, передний ход",
-        "unit": "",
-        "options": [
-          "1:2,04",
-          "1:2,95"
-        ]
-      },
-      {
-        "key": "rev",
-        "label": "Передаточное отношение, задний ход",
-        "unit": "",
-        "options": [
-          "1:2,18",
-          "1:2,62",
-          "1:2,95"
-        ]
-      },
-      {
-        "key": "rot",
-        "label": "Вращение",
-        "unit": "",
-        "options": [
-          "левое",
-          "правое"
-        ]
-      }
-    ]
+    "preset": {
+      "engine": "3Д6",
+      "type": "гидравлический",
+      "hp": "300",
+      "rpm": "1500",
+      "fwd": "1:2,04",
+      "rev": "1:2,18"
+    }
   },
   "seo": {
     "title": "РРП-300: реверс-редукторная передача, характеристики и запчасти",

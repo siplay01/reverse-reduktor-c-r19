@@ -1,4 +1,4 @@
-// c-r19 client code: request list (localStorage, mail draft only on a click), РРП-300 constructor, table filter, requisites copy.
+// c-r19 client code: request list (localStorage, mail draft only on a click), РРП constructor, table filter, requisites copy.
 (() => {
   const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
   const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
@@ -18,17 +18,24 @@
     $("#cart-send").hidden = !cart.length; $("#cart-text").value = cart.length ? mailBody() : "";
     $("#cart-items").innerHTML = cart.map((c, i) => `<li><div><span class="sku" translate="no">${esc(c.des)}</span><span>${esc(c.name)}</span><small>${esc(c.where)}</small></div><label class="sr" for="cq${i}">Количество, ${esc(c.des)}</label><input id="cq${i}" type="number" min="1" inputmode="numeric" value="${c.q}" data-q="${i}"><button type="button" class="cart-x" data-x="${i}" aria-label="Убрать ${esc(c.des)}">×</button></li>`).join("");
   }
-  // ---- constructor
+  // ---- constructor: owner's fields (settings.json), model preset; "серийное исполнение" when the choice matches a РРП-300 variant row
   const box = $("[data-config]"), cfgEl = $("#cfg-data");
-  const groups = box && cfgEl ? JSON.parse(cfgEl.textContent) : [], sel = {};
-  groups.forEach((g) => { sel[g.key] = g.options[g.options.length === 2 ? 1 : 0]; });
-  if (groups.length) { sel.hp = groups[0].options[groups[0].options.length - 1]; sel.fwd = groups[1].options[0]; sel.rev = groups[2].options[0]; sel.rot = groups[3].options[groups[3].options.length - 1]; }
-  const cfgLine = () => groups.map((g) => `${g.label.replace("Передаточное отношение, ", "").toLowerCase()} ${sel[g.key]}${g.unit || ""}`).join(", ");
+  const CFG = box && cfgEl ? JSON.parse(cfgEl.textContent) : { groups: [] }, groups = CFG.groups || [], sel = {};
+  groups.forEach((g) => { sel[g.key] = (CFG.preset || {})[g.key] ?? g.options[0]; });
+  const withUnit = (g, o) => (/^\d/.test(o) ? o + (g.unit || "") : o);
+  const modelName = () => box.dataset.model || (sel.type === "механический" ? (sel.engine === "3Д12" ? "РРП-3Д12" : sel.engine === "3Д6" ? "РРП-3Д6" : "РРП, механический") : sel.engine === "серия ЯМЗ" ? "РРП-238" : /^3Д/.test(sel.engine) ? "РРП-300" : "РРП, гидравлический");
+  function status() {
+    const sr = CFG.serial; if (!sr || sel.type !== "гидравлический" || !/^3Д/.test(sel.engine) || sel.rpm !== "1500") return null;
+    const hit = sr.variants.filter((v) => String(v.hp) === sel.hp && v.forward === sel.fwd && v.reverse === sel.rev);
+    return hit.length ? hit.map((v) => `${sr.designation}${v.code === "-" ? "" : v.code} (${v.rotation} вращение, муфта ${v.fingers}-пальцевая)`) : null;
+  }
+  const cfgLine = () => { const st = status(); return groups.map((g) => `${g.label.replace("Передаточное отношение, ", "").toLowerCase()}: ${withUnit(g, sel[g.key])}`).join(", ") + (st ? `; серийное исполнение ${st.map((x) => x.split(" (")[0]).join(" или ")}` : "; под заказ"); };
   function renderConfig() {
-    if (!groups.length) return; const name = box.dataset.model;
-    box.innerHTML = `<div class="cfg-groups">${groups.map((g) => `<fieldset class="cfg-g"><legend>${esc(g.label)}</legend><div class="cfg-opts">${g.options.map((o) => `<label class="cfg-o"><input type="radio" name="cfg-${g.key}" value="${esc(o)}" data-cfg="${g.key}"${sel[g.key] === o ? " checked" : ""}><span>${esc(o)}${g.unit || ""}</span></label>`).join("")}</div></fieldset>`).join("")}</div>` +
-      `<aside class="cfg-res" aria-live="polite"><p class="cfg-k">Ваша конфигурация</p><p class="cfg-name">${esc(name)}</p><ul class="cfg-sum">${groups.map((g) => `<li><span>${esc(g.label)}</span><b>${esc(sel[g.key])}${g.unit || ""}</b></li>`).join("")}</ul>` +
-      `<p class="cfg-note">Гарантия 12 месяцев. Допустимость сочетания и заводской шифр исполнения подтвердит инженер.</p><p class="cfg-btns"><button type="button" class="btn btn-white" data-cfg-add>В список запроса</button></p></aside>`;
+    if (!groups.length) return; const st = status();
+    box.innerHTML = `<div class="cfg-groups">${groups.map((g) => `<fieldset class="cfg-g"><legend>${esc(g.label)}</legend><div class="cfg-opts">${g.options.map((o) => `<label class="cfg-o"><input type="radio" name="cfg-${g.key}" value="${esc(o)}" data-cfg="${g.key}"${sel[g.key] === o ? " checked" : ""}><span>${esc(withUnit(g, o))}</span></label>`).join("")}</div></fieldset>`).join("")}</div>` +
+      `<aside class="cfg-res" aria-live="polite"><p class="cfg-k">Ваша конфигурация</p><p class="cfg-name">${esc(modelName())}</p><ul class="cfg-sum">${groups.map((g) => `<li><span>${esc(g.label)}</span><b>${esc(withUnit(g, sel[g.key]))}</b></li>`).join("")}</ul>` +
+      `<p class="cfg-st ${st ? "is-serial" : "is-order"}" data-cfg-status>${st ? `<b>Серийное исполнение</b>${st.map((x) => `<span>${esc(x)}</span>`).join("")}` : `<b>Под заказ</b><span>Возможность и сроки подтвердит инженер.</span>`}</p>` +
+      `<p class="cfg-note">Гарантия 12 месяцев.</p><p class="cfg-btns"><button type="button" class="btn btn-white" data-cfg-add>В список запроса</button></p></aside>`;
   }
   // ---- table filter
   function filterRows(input) {
@@ -39,7 +46,7 @@
   document.addEventListener("click", (e) => {
     const t = e.target;
     const ml = t.closest("[data-map-load]"); if (ml) { const m = ml.closest("[data-map]"); m.querySelector(".find-facade").innerHTML = `<iframe class="find-frame" src="${m.dataset.src}" title="Карта проезда, Яндекс.Карты" loading="lazy" allowfullscreen></iframe>`; }
-    if (t.closest("[data-cfg-add]")) add(box.dataset.model, cfgLine(), "Конструктор", 1);
+    if (t.closest("[data-cfg-add]")) add(modelName(), cfgLine(), "Конструктор", 1);
     const a = t.closest("[data-add]"); if (a) add(a.dataset.add, a.dataset.name, a.dataset.where, Math.max(1, parseInt(a.parentElement.querySelector("[data-qty]")?.value, 10) || 1));
     if (t.closest("[data-cart-open]")) { renderCart(); $("#cart").showModal(); }
     if (t.closest("[data-cart-close]") || t.id === "cart") $("#cart").close();

@@ -54,3 +54,11 @@ Clickable callouts on the РРП-300 section drawing, the per-variant selector o
 ## Publishing
 
 `.github/workflows/pages.yml` builds and deploys on every push to `main` (set repository variables `SITE_URL`, `BASE`, `INDEXABLE` for a real domain). Nothing is published yet.
+
+## Revision 20 (2026-11-11)
+
+- Model cards show the owner's photos (labels from his WhatsApp messages), cut out on white by `swift scripts/cutout.swift <in> <out.png> all 1200 900 0.86` (macOS Vision, on-device), same 3/4 side view with the coupling flange on the right; РРП-238 has no such shot, its flange is on the left (photos are never mirrored). Муфта: fig. 135 of the owner's catalog. NEW: sheets 29-31 of the СРРП draft ТУ (owner sent them "для сайта стр.29,30,31").
+- РРП-238: mass 460 kg (manual: РР-300-238), outline drawing «РР-300 А ГЧ» with PDF (`figures.json` supports `pdf`, `image_large`, empty `legend`).
+- Services are a plain list plus call/write buttons (the rows used to link to the footer).
+- Constructor: the owner's fields live in `settings.json` → `constructor.groups`; each model only has `constructor.enabled` + `preset`. A choice that matches a РРП-300 variant row (hydraulic, 3Д6/3Д12, 1500 rpm, power and both ratios) shows «Серийное исполнение <designation+code>»; everything else shows «Под заказ».
+- Rollback: `git checkout before-c-r20`.

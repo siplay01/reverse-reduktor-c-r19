@@ -470,5 +470,32 @@
         }
       ]
     }
+  ],
+  "rrp-238": [
+    {
+      "title": "Габаритный чертёж РР-300-238 (исполнение под ЯМЗ-238)",
+      "image": "assets/rrp238-gabarit-1200.webp",
+      "image_large": "assets/rrp238-gabarit-2400.webp",
+      "width": 1200,
+      "height": 849,
+      "pdf": "assets/rrp238-gabaritnyj-chertezh.pdf",
+      "legend": []
+    }
+  ],
+  "novaya-razrabotka": [
+    {
+      "title": "Габаритный чертёж реверс-редуктора с муфтой МФТ.Я438-300-20",
+      "image": "img/models/srrp-list30.webp",
+      "width": 1600,
+      "height": 1200,
+      "legend": []
+    },
+    {
+      "title": "Габаритный чертёж реверс-редуктора с муфтой МФТ.Я475-300-20",
+      "image": "img/models/srrp-list31.webp",
+      "width": 1600,
+      "height": 1200,
+      "legend": []
+    }
   ]
 }

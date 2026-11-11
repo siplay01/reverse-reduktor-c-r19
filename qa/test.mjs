@@ -15,11 +15,18 @@ for (const [name, eng] of [["chromium", chromium], ["webkit", webkit]]) {
     assert.equal(await p.locator(".mcard-spec", { hasText: "Гарантия" }).count(), 4);
     assert.equal(await p.locator(".models .mcard").last().getAttribute("id"), "model-novaya-razrabotka");
     assert.equal((await p.locator("#model-novaya-razrabotka .stamp, #model-novaya-razrabotka .is-newbig span").first().innerText()).trim(), "NEW");
-    await p.locator("label.cfg-o", { hasText: "150" }).click(); await p.locator("label.cfg-o", { hasText: "1:2,95" }).first().click();
-    await p.locator("label.cfg-o", { hasText: "1:2,62" }).click(); await p.locator("label.cfg-o", { hasText: "левое" }).click();
+    const pick = (leg, txt) => p.locator("fieldset.cfg-g", { has: p.locator("legend", { hasText: leg }) }).locator("label.cfg-o", { hasText: new RegExp(`^${txt.replace(/[.()]/g, "\\$&")}$`) }).click();
+    assert.equal(await p.locator("fieldset.cfg-g").count(), 8, "owner's 8 constructor fields");
+    await pick("Применяемый ДВС", "3Д6"); await pick("Тип РРП", "гидравлический"); await pick("Мощность", "150 л.с."); await pick("обороты", "1500 об/мин");
+    await pick("передний ход", "1:2,95"); await pick("задний ход", "1:2,61");
+    assert.match(await p.locator("[data-cfg-status]").innerText(), /Серийное исполнение[\s\S]*СБ525-01-13-040/);
+    await pick("обороты", "2100 об/мин"); assert.match(await p.locator("[data-cfg-status]").innerText(), /Под заказ/);
+    await pick("обороты", "1500 об/мин");
     await p.evaluate(() => localStorage.removeItem("rr-c19-cart")); await p.click("[data-cfg-add]");
     const cart = await p.evaluate(() => JSON.parse(localStorage.getItem("rr-c19-cart")));
-    assert.equal(cart.length, 1); assert.equal(cart[0].des, "РРП-300"); assert.ok(/150 л\.с\./.test(cart[0].name) && /левое/.test(cart[0].name) && /1:2,62/.test(cart[0].name), cart[0].name);
+    assert.equal(cart.length, 1); assert.equal(cart[0].des, "РРП-300"); assert.ok(/150 л\.с\./.test(cart[0].name) && /1:2,61/.test(cart[0].name) && /СБ525-01-13-040/.test(cart[0].name), cart[0].name);
+    assert.equal(await p.locator("#uslugi .sv8-list li a").count(), 0, "services rows are not links");
+    for (const id of ["rrp-300", "rrp-238", "rrp-3d6", "rrp-3d12", "mufta-ms", "novaya-razrabotka"]) assert.equal(await p.locator(`#model-${id} .mcard-pic img`).count(), 1, `picture on ${id}`);
     // 2. real addresses: card -> model page -> catalog -> node -> part, each its own URL
     await p.locator("#model-rrp-300 .mcard-h a").click(); await p.waitForURL("**/produkciya/rrp-300/"); assert.match(await p.locator("h1").innerText(), /РРП-300/);
     assert.ok(await p.locator("table.vtab tbody tr").count() >= 10, "variants table");
