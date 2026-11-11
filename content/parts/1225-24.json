@@ -1,0 +1,18 @@
+{
+  "designation": "1225-24",
+  "name": "Пружина",
+  "type": "Пружины",
+  "models": [
+    "mufta-ms"
+  ],
+  "figures": {
+    "rrp-300": [],
+    "rrp-3d6": [],
+    "mufta-ms": [
+      138
+    ],
+    "rrp-3d12": []
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}

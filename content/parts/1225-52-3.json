@@ -3,14 +3,19 @@
   "name": "Шайба замковая",
   "type": "Шайбы",
   "models": [
-    "rrp-300"
+    "rrp-300",
+    "rrp-3d12"
   ],
   "figures": {
     "rrp-300": [
       11,
       13
     ],
-    "rrp-3d6": []
+    "rrp-3d6": [],
+    "rrp-3d12": [
+      127
+    ],
+    "mufta-ms": []
   },
   "depends_on_variant": false,
   "price_rub": 250

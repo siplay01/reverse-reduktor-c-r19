@@ -1,0 +1,21 @@
+{
+  "designation": "1225-30",
+  "name": "Заклепка 6X22",
+  "type": "Гайки, болты, винты",
+  "models": [
+    "rrp-3d12",
+    "mufta-ms"
+  ],
+  "figures": {
+    "rrp-300": [],
+    "rrp-3d6": [],
+    "rrp-3d12": [
+      122
+    ],
+    "mufta-ms": [
+      137
+    ]
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}

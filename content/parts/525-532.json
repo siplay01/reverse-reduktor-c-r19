@@ -4,7 +4,9 @@
   "type": "Шестерни",
   "models": [
     "rrp-300",
-    "rrp-3d6"
+    "rrp-3d6",
+    "rrp-3d12",
+    "mufta-ms"
   ],
   "figures": {
     "rrp-300": [
@@ -12,6 +14,12 @@
     ],
     "rrp-3d6": [
       90
+    ],
+    "rrp-3d12": [
+      122
+    ],
+    "mufta-ms": [
+      137
     ]
   },
   "depends_on_variant": true,

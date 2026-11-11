@@ -1,0 +1,18 @@
+{
+  "designation": "525-130-1",
+  "name": "Стакан подшипника задний",
+  "type": "Втулки и стаканы",
+  "models": [
+    "rrp-3d12"
+  ],
+  "figures": {
+    "rrp-300": [],
+    "rrp-3d6": [],
+    "rrp-3d12": [
+      132
+    ],
+    "mufta-ms": []
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}

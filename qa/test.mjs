@@ -60,9 +60,18 @@ for (const [name, eng] of [["chromium", chromium], ["webkit", webkit]]) {
     await p.goto(U("/produkciya/novaya-razrabotka/"));
     assert.equal(await p.evaluate(() => { const f = document.querySelector(".model-pic").getBoundingClientRect(), s = document.querySelector(".stamp").getBoundingClientRect(); return s.left >= f.left && s.right <= f.right && s.top >= f.top && s.bottom <= f.bottom; }), true, "stamp is not cropped");
     assert.equal(await p.locator("p", { hasText: "Новая модель в линейке" }).count(), 1, "sentence once");
-    await p.goto(U("/katalog/")); assert.ok((await p.locator(".mcard-app", { hasText: "3 позиции" }).count()) === 1, "plural 3 позиции");
+    await p.goto(U("/katalog/")); assert.equal(await p.locator('a[href$="/katalog/rrp-238/"]').count(), 0, "238 has no catalog of its own");
+    assert.equal(await p.locator(".mcard-h", { hasText: "РРП-300 и РРП-238" }).count(), 1, "shared 300/238 catalog card");
+    assert.equal(await p.locator(".mcard-h", { hasText: "Муфта сцепления" }).count(), 1, "clutch catalog card");
+    // request without collecting data: text window + copy, no personal-data fields
+    await p.goto(U("/katalog/rrp-3d12/ris-123/")); await p.locator(".btn-add").first().click(); await p.locator("[data-cart-open]").first().click();
+    assert.equal(await p.locator("#cart-send").isVisible(), true, "request text window visible");
+    const ctext = await p.inputValue("#cart-text"); assert.ok(ctext.includes("1225-17-1") && ctext.includes("Прошу сообщить"), "request text holds the item");
+    assert.equal(await p.locator("#cart input:not([data-q]), #cart select").count(), 0, "no personal-data fields in the request dialog");
+    assert.equal(await p.locator("#cart [data-cart-mail]").innerText(), "Оставить заявку");
+    await p.locator("[data-cart-clear]").click(); assert.equal(await p.locator("#cart-send").isVisible(), false, "text window hidden for an empty list"); await p.keyboard.press("Escape");
     // 4. no horizontal overflow on the main page types
-    for (const pg of ["/", "/produkciya/rrp-300/", "/katalog/", "/katalog/rrp-300/", "/katalog/rrp-300/ris-3/", "/detal/525-16-113/", "/dokumenty/", "/kontakty/"]) {
+    for (const pg of ["/", "/produkciya/rrp-300/", "/katalog/", "/katalog/rrp-300/", "/katalog/rrp-300/ris-3/", "/katalog/rrp-3d12/", "/katalog/rrp-3d12/ris-123/", "/katalog/rrp-3d12/ris-134/", "/katalog/mufta-ms/", "/katalog/mufta-ms/ris-137/", "/detal/525-16-113/", "/dokumenty/", "/kontakty/"]) {
       await p.goto(U(pg)); await p.waitForLoadState("load");
       const over = await p.evaluate(() => { const bad = []; if (document.documentElement.scrollWidth > innerWidth) bad.push("page " + document.documentElement.scrollWidth); return bad; });
       assert.deepEqual(over, [], `${pg} @${w}`);
@@ -72,7 +81,7 @@ for (const [name, eng] of [["chromium", chromium], ["webkit", webkit]]) {
   // 4b. width sweep (a desktop window narrowed by a side panel is every width, not only 390 and 1360): no page overflow, header
   //     fits every 20 px from 700 to 1900, nothing visible sticks out of the viewport, the request list stays inside the window
   {
-    const PAGES = ["/", "/produkciya/rrp-300/", "/katalog/", "/katalog/rrp-300/", "/katalog/rrp-300/ris-3/", "/katalog/vse/", "/detal/525-16-113/", "/dokumenty/", "/kontakty/"];
+    const PAGES = ["/", "/produkciya/rrp-300/", "/katalog/", "/katalog/rrp-300/", "/katalog/rrp-300/ris-3/", "/katalog/rrp-3d12/", "/katalog/rrp-3d12/ris-123/", "/katalog/rrp-3d12/ris-134/", "/katalog/mufta-ms/", "/katalog/mufta-ms/ris-137/", "/katalog/vse/", "/detal/525-16-113/", "/dokumenty/", "/kontakty/"];
     const items = Array.from({ length: 12 }, (_, i) => ({ des: "525-16-" + (100 + i), name: "Тестовая деталь с длинным названием для переноса " + i, where: "РРП-300, рис. 3, поз. " + i, q: 3 }));
     const p = await (await b.newContext({ viewport: { width: 1000, height: 700 } })).newPage(); const bad = [];
     await p.goto(U());

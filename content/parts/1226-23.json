@@ -1,0 +1,18 @@
+{
+  "designation": "1226-23",
+  "name": "Корпус муфты",
+  "type": "Крышки и корпуса",
+  "models": [
+    "mufta-ms"
+  ],
+  "figures": {
+    "rrp-300": [],
+    "rrp-3d6": [],
+    "mufta-ms": [
+      136
+    ],
+    "rrp-3d12": []
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}

@@ -1,0 +1,21 @@
+{
+  "designation": "305-14-2",
+  "name": "Заглушка сверления щек",
+  "type": "Прочие детали",
+  "models": [
+    "rrp-3d12",
+    "mufta-ms"
+  ],
+  "figures": {
+    "rrp-300": [],
+    "rrp-3d6": [],
+    "rrp-3d12": [
+      123
+    ],
+    "mufta-ms": [
+      137
+    ]
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}

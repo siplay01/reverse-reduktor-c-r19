@@ -3,13 +3,18 @@
   "name": "Замок",
   "type": "Прочие детали",
   "models": [
-    "rrp-300"
+    "rrp-300",
+    "mufta-ms"
   ],
   "figures": {
     "rrp-300": [
       15
     ],
-    "rrp-3d6": []
+    "rrp-3d6": [],
+    "rrp-3d12": [],
+    "mufta-ms": [
+      141
+    ]
   },
   "depends_on_variant": false,
   "price_rub": null

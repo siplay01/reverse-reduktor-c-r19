@@ -1,0 +1,18 @@
+{
+  "designation": "1225-59-2",
+  "name": "Втулка промежуточная",
+  "type": "Втулки и стаканы",
+  "models": [
+    "rrp-3d12"
+  ],
+  "figures": {
+    "rrp-300": [],
+    "rrp-3d6": [],
+    "rrp-3d12": [
+      129
+    ],
+    "mufta-ms": []
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}

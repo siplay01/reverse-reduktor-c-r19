@@ -1,0 +1,18 @@
+{
+  "designation": "525-89-1А",
+  "name": "Гильза пружины",
+  "type": "Прочие детали",
+  "models": [
+    "mufta-ms"
+  ],
+  "figures": {
+    "rrp-300": [],
+    "rrp-3d6": [],
+    "mufta-ms": [
+      138
+    ],
+    "rrp-3d12": []
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}

@@ -3,13 +3,25 @@
   "name": "Кольцо стопорное комплект",
   "type": "Кольца",
   "models": [
-    "rrp-3d6"
+    "rrp-3d6",
+    "rrp-3d12",
+    "mufta-ms"
   ],
   "figures": {
     "rrp-300": [],
     "rrp-3d6": [
       91,
       92
+    ],
+    "rrp-3d12": [
+      123,
+      125,
+      134
+    ],
+    "mufta-ms": [
+      137,
+      138,
+      139
     ]
   },
   "depends_on_variant": false,

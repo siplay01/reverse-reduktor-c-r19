@@ -3,12 +3,17 @@
   "name": "Кронштейн с пальцами",
   "type": "Прочие детали",
   "models": [
-    "rrp-3d6"
+    "rrp-3d6",
+    "mufta-ms"
   ],
   "figures": {
     "rrp-300": [],
     "rrp-3d6": [
       91
+    ],
+    "rrp-3d12": [],
+    "mufta-ms": [
+      138
     ]
   },
   "depends_on_variant": false,

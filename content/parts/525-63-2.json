@@ -3,13 +3,18 @@
   "name": "Жиклёр",
   "type": "Прочие детали",
   "models": [
-    "rrp-3d6"
+    "rrp-3d6",
+    "rrp-3d12"
   ],
   "figures": {
     "rrp-300": [],
     "rrp-3d6": [
       90
-    ]
+    ],
+    "rrp-3d12": [
+      122
+    ],
+    "mufta-ms": []
   },
   "depends_on_variant": false,
   "price_rub": null

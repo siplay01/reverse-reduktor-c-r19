@@ -1,0 +1,18 @@
+{
+  "designation": "1225М-103",
+  "name": "Ступица ведущей шестерни переднего хода",
+  "type": "Прочие детали",
+  "models": [
+    "rrp-3d12"
+  ],
+  "figures": {
+    "rrp-300": [],
+    "rrp-3d6": [],
+    "rrp-3d12": [
+      128
+    ],
+    "mufta-ms": []
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}

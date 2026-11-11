@@ -3,13 +3,23 @@
   "name": "Болт М8х16",
   "type": "Гайки, болты, винты",
   "models": [
-    "rrp-3d6"
+    "rrp-3d6",
+    "rrp-3d12",
+    "mufta-ms"
   ],
   "figures": {
     "rrp-300": [],
     "rrp-3d6": [
       89,
       97
+    ],
+    "rrp-3d12": [
+      127,
+      132
+    ],
+    "mufta-ms": [
+      136,
+      141
     ]
   },
   "depends_on_variant": false,

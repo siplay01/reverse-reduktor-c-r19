@@ -8,7 +8,9 @@
   ],
   "figures": {
     "rrp-300": [],
-    "rrp-3d6": []
+    "rrp-3d6": [],
+    "rrp-3d12": [],
+    "mufta-ms": []
   },
   "depends_on_variant": false,
   "price_rub": 7000

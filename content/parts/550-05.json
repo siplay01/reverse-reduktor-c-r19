@@ -3,13 +3,18 @@
   "name": "Шпилька М12х67",
   "type": "Гайки, болты, винты",
   "models": [
-    "rrp-3d6"
+    "rrp-3d6",
+    "rrp-3d12"
   ],
   "figures": {
     "rrp-300": [],
     "rrp-3d6": [
       89
-    ]
+    ],
+    "rrp-3d12": [
+      121
+    ],
+    "mufta-ms": []
   },
   "depends_on_variant": false,
   "price_rub": null

@@ -3,13 +3,18 @@
   "name": "Втулка распорная",
   "type": "Втулки и стаканы",
   "models": [
-    "rrp-3d6"
+    "rrp-3d6",
+    "rrp-3d12"
   ],
   "figures": {
     "rrp-300": [],
     "rrp-3d6": [
       96
-    ]
+    ],
+    "rrp-3d12": [
+      130
+    ],
+    "mufta-ms": []
   },
   "depends_on_variant": false,
   "price_rub": null

@@ -1,0 +1,18 @@
+{
+  "designation": "329-27-2",
+  "name": "Кольцо уплотнительное",
+  "type": "Кольца",
+  "models": [
+    "rrp-3d12"
+  ],
+  "figures": {
+    "rrp-300": [],
+    "rrp-3d6": [],
+    "rrp-3d12": [
+      129
+    ],
+    "mufta-ms": []
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}

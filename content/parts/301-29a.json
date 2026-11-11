@@ -3,12 +3,20 @@
   "name": "Рым-болт",
   "type": "Прочие детали",
   "models": [
-    "rrp-3d6"
+    "rrp-3d6",
+    "rrp-3d12",
+    "mufta-ms"
   ],
   "figures": {
     "rrp-300": [],
     "rrp-3d6": [
       89
+    ],
+    "rrp-3d12": [
+      121
+    ],
+    "mufta-ms": [
+      136
     ]
   },
   "depends_on_variant": false,

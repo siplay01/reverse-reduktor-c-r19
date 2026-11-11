@@ -1,0 +1,97 @@
+{
+  "model": "mufta-ms",
+  "fig": 136,
+  "title": "Корпус муфты сцепления",
+  "image": "img/mufta/ris-136.webp",
+  "image_large": "img/mufta/ris-136-1400.webp",
+  "thumb": "img/mufta/ris-136-420.webp",
+  "width": 900,
+  "height": 770,
+  "variants": [
+    "2Д12Б"
+  ],
+  "rows": [
+    {
+      "pos": 1,
+      "designation": "СБ1226-01-1",
+      "name": "Корпус муфты",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 2,
+      "designation": "301-29А",
+      "name": "Рым-болт",
+      "qty": [
+        3
+      ],
+      "note": ""
+    },
+    {
+      "pos": 3,
+      "designation": "1226-23",
+      "name": "Корпус муфты",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 4,
+      "designation": "556-05",
+      "name": "Болт М8Х16",
+      "qty": [
+        8
+      ],
+      "note": ""
+    },
+    {
+      "pos": 5,
+      "designation": "353-24",
+      "name": "Шайба пружинная 8Т",
+      "qty": [
+        8
+      ],
+      "note": ""
+    },
+    {
+      "pos": 6,
+      "designation": "СБ526-04",
+      "name": "Крышка отсека муфты",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 7,
+      "designation": "526-29",
+      "name": "Крышка нижняя",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 8,
+      "designation": "556-03-1",
+      "name": "Болт М12Х45",
+      "qty": [
+        12
+      ],
+      "note": ""
+    },
+    {
+      "pos": 9,
+      "designation": "553-02-1",
+      "name": "Шайба пружинная 12Н",
+      "qty": [
+        12
+      ],
+      "note": ""
+    }
+  ],
+  "footnotes": {}
+}

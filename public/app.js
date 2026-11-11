@@ -9,11 +9,13 @@
   const save = () => { try { localStorage.setItem(KEY, JSON.stringify(cart)); } catch {} renderCart(); };
   function add(des, name, where, q = 1) { const it = cart.find((c) => c.des === des && c.where === where); if (it) it.q += q; else cart.push({ des, name, where, q }); save(); toast(`${des}: ${q} шт. в списке запроса`); }
   const cartText = () => cart.map((c, i) => `${i + 1}. ${c.des} ${c.name} (${c.where}), ${c.q} шт.`).join("\n");
+  const mailBody = () => `Здравствуйте!\n\nПрошу сообщить наличие, цену и срок поставки:\n\n${cartText()}\n\nОрганизация:\nКонтактное лицо:\nТелефон:\n`;
   function renderCart() {
     const total = cart.reduce((s, c) => s + c.q, 0);
     $$("[data-cart-count]").forEach((el) => { el.textContent = total; el.hidden = total === 0; });
     $$("[data-cart-open]").forEach((el) => el.setAttribute("aria-label", total ? `Список запроса, всего ${total} шт.` : "Список запроса"));
     $("#cart-empty").hidden = cart.length > 0; $$("#cart [data-need-items]").forEach((b) => { b.disabled = !cart.length; });
+    $("#cart-send").hidden = !cart.length; $("#cart-text").value = cart.length ? mailBody() : "";
     $("#cart-items").innerHTML = cart.map((c, i) => `<li><div><span class="sku" translate="no">${esc(c.des)}</span><span>${esc(c.name)}</span><small>${esc(c.where)}</small></div><label class="sr" for="cq${i}">Количество, ${esc(c.des)}</label><input id="cq${i}" type="number" min="1" inputmode="numeric" value="${c.q}" data-q="${i}"><button type="button" class="cart-x" data-x="${i}" aria-label="Убрать ${esc(c.des)}">×</button></li>`).join("");
   }
   // ---- constructor
@@ -43,8 +45,10 @@
     if (t.closest("[data-cart-close]") || t.id === "cart") $("#cart").close();
     const x = t.closest("[data-x]"); if (x) { cart.splice(+x.dataset.x, 1); save(); }
     if (t.closest("[data-cart-clear]")) { cart = []; save(); }
-    if (t.closest("[data-cart-copy]")) navigator.clipboard.writeText(cartText()).then(() => toast("Список скопирован"), () => toast("Не удалось скопировать: выделите список вручную"));
-    if (t.closest("[data-cart-mail]")) location.href = `mailto:${$("#cart").dataset.mail}?subject=${encodeURIComponent("Запрос запчастей, реверс-редукторы")}&body=${encodeURIComponent(`Здравствуйте!\n\nПрошу сообщить наличие, цену и срок поставки:\n\n${cartText()}\n\nОрганизация:\nКонтактное лицо:\nТелефон:\n`)}`;
+    const copyTxt = (txt, ok) => navigator.clipboard.writeText(txt).then(() => toast(ok), () => { const ta = $("#cart-text"); ta.focus(); ta.select(); toast("Не удалось скопировать: текст выделен, нажмите Cmd/Ctrl+C"); });
+    if (t.closest("[data-cart-copy]")) copyTxt(mailBody(), "Текст заявки скопирован");
+    if (t.closest("[data-cart-copy-addr]")) copyTxt($("#cart").dataset.mail, "Адрес скопирован");
+    if (t.closest("[data-cart-mail]")) location.href = `mailto:${$("#cart").dataset.mail}?subject=${encodeURIComponent("Запрос запчастей, реверс-редукторы")}&body=${encodeURIComponent(mailBody())}`;
     if (t.closest("[data-copy-req]")) navigator.clipboard.writeText($$("#req div").map((d) => `${d.querySelector("dt").textContent}: ${d.querySelector("dd").textContent}`).join("\n")).then(() => toast("Реквизиты скопированы"), () => toast("Не удалось скопировать: выделите реквизиты вручную"));
   });
   // ---- variant picker on figure pages: show one quantity column; the choice is remembered for the session

@@ -3,12 +3,20 @@
   "name": "Крышка сальника",
   "type": "Крышки и корпуса",
   "models": [
-    "rrp-3d6"
+    "rrp-3d6",
+    "rrp-3d12",
+    "mufta-ms"
   ],
   "figures": {
     "rrp-300": [],
     "rrp-3d6": [
       97
+    ],
+    "rrp-3d12": [
+      132
+    ],
+    "mufta-ms": [
+      141
     ]
   },
   "depends_on_variant": false,

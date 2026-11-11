@@ -4,7 +4,8 @@
   "type": "Гайки, болты, винты",
   "models": [
     "rrp-300",
-    "rrp-3d6"
+    "rrp-3d6",
+    "mufta-ms"
   ],
   "figures": {
     "rrp-300": [
@@ -14,6 +15,10 @@
     "rrp-3d6": [
       91,
       93
+    ],
+    "rrp-3d12": [],
+    "mufta-ms": [
+      138
     ]
   },
   "depends_on_variant": false,

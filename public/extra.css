@@ -131,3 +131,8 @@ body.static .c-ap { font-size: 14px; }
 @media (min-width: 801px) { .ar-list li { grid-template-columns: 22px minmax(0, 1fr) 8em 15em auto; } }
 @media (max-width: 700px) { .vsel td.c-q { text-align: left; padding: 0; font-size: 14px; } .var-pick { padding: 0 2px; } }
 .part-kv > div:first-child { border-top: 0; }
+.node-noimg { grid-template-columns: 1fr; }
+.cart-send { display: flex; flex-direction: column; gap: 6px; }
+.cart-lab { font-weight: 650; font-size: 15px; }
+.cart-text { width: 100%; font: 14px/1.45 ui-monospace, Menlo, monospace; padding: 10px; border: 1px solid var(--line); border-radius: var(--r); background: var(--panel); color: inherit; resize: vertical; min-height: 140px; }
+.cart-send .small { margin: 0; }

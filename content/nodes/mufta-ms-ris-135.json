@@ -1,0 +1,46 @@
+{
+  "model": "mufta-ms",
+  "fig": 135,
+  "title": "Муфта сцепления",
+  "image": "img/mufta/ris-135.webp",
+  "image_large": "img/mufta/ris-135-1400.webp",
+  "thumb": "img/mufta/ris-135-420.webp",
+  "width": 900,
+  "height": 709,
+  "variants": [
+    "2Д12Б"
+  ],
+  "rows": [
+    {
+      "pos": 1,
+      "designation": "СБ1226-00-2",
+      "name": "Муфта сцепления",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 0,
+      "designation": "СБ1226-02-2",
+      "name": "Механизм муфты",
+      "qty": [
+        1
+      ],
+      "note": "1"
+    },
+    {
+      "pos": 0,
+      "designation": "СБ1226-02-3",
+      "name": "Механизм муфты",
+      "qty": [
+        1
+      ],
+      "note": "2"
+    }
+  ],
+  "footnotes": {
+    "1": "Для дизелей выпущенных до февраля 1978г.",
+    "2": "Для дизелей выпускаемых с февраля 1978г."
+  }
+}

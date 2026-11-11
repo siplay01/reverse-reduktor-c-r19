@@ -1,0 +1,18 @@
+{
+  "designation": "1225М-38-2",
+  "name": "Шестерня переднего хода ведомая",
+  "type": "Шестерни",
+  "models": [
+    "rrp-3d12"
+  ],
+  "figures": {
+    "rrp-300": [],
+    "rrp-3d6": [],
+    "rrp-3d12": [
+      131
+    ],
+    "mufta-ms": []
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}

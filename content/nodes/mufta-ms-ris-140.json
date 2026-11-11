@@ -1,0 +1,205 @@
+{
+  "model": "mufta-ms",
+  "fig": 140,
+  "title": "Вилка включения муфты",
+  "image": "img/mufta/ris-140.webp",
+  "image_large": "img/mufta/ris-140-1400.webp",
+  "thumb": "img/mufta/ris-140-420.webp",
+  "width": 900,
+  "height": 735,
+  "variants": [
+    "2Д12Б"
+  ],
+  "rows": [
+    {
+      "pos": 1,
+      "designation": "СБ311-66-1",
+      "name": "Масленка в сборе",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 2,
+      "designation": "525-47-5",
+      "name": "Валик",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 3,
+      "designation": "525-59",
+      "name": "Шпонка сегментная",
+      "qty": [
+        2
+      ],
+      "note": ""
+    },
+    {
+      "pos": 4,
+      "designation": "525-16-4",
+      "name": "Вилка включения",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 5,
+      "designation": "553-02-1",
+      "name": "Шайба пружинная 12Н",
+      "qty": [
+        3
+      ],
+      "note": ""
+    },
+    {
+      "pos": 6,
+      "designation": "556-03-1",
+      "name": "Болт М12х45",
+      "qty": [
+        2
+      ],
+      "note": ""
+    },
+    {
+      "pos": 7,
+      "designation": "526-47-6",
+      "name": "Валик",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 8,
+      "designation": "353-26",
+      "name": "Шайба пружинная 10Т",
+      "qty": [
+        2
+      ],
+      "note": ""
+    },
+    {
+      "pos": 9,
+      "designation": "1260-21",
+      "name": "Болт М10х38",
+      "qty": [
+        2
+      ],
+      "note": ""
+    },
+    {
+      "pos": 10,
+      "designation": "556-15",
+      "name": "Болт М12х35",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 11,
+      "designation": "526-49-1",
+      "name": "Рычаг",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 12,
+      "designation": "526-48-1",
+      "name": "Кронштейн упоров",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 13,
+      "designation": "351-50",
+      "name": "Гайка М10",
+      "qty": [
+        2
+      ],
+      "note": ""
+    },
+    {
+      "pos": 14,
+      "designation": "556-09",
+      "name": "Болт М10Х50",
+      "qty": [
+        2
+      ],
+      "note": ""
+    },
+    {
+      "pos": 15,
+      "designation": "525-275",
+      "name": "Кольцо стопорное",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 16,
+      "designation": "525-79-1",
+      "name": "Сухарь",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 17,
+      "designation": "311-79",
+      "name": "Пружина",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 18,
+      "designation": "311-78",
+      "name": "Шарик 5 мм",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 19,
+      "designation": "311-80",
+      "name": "Штифт цилиндрический",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 20,
+      "designation": "311-77",
+      "name": "Корпус масленки",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 21,
+      "designation": "525-81-4А",
+      "name": "Сухарь",
+      "qty": [
+        1
+      ],
+      "note": ""
+    }
+  ],
+  "footnotes": {}
+}

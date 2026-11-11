@@ -1,0 +1,18 @@
+{
+  "designation": "1225-41-3",
+  "name": "Кольцо уплотнительное",
+  "type": "Кольца",
+  "models": [
+    "rrp-3d12"
+  ],
+  "figures": {
+    "rrp-300": [],
+    "rrp-3d6": [],
+    "rrp-3d12": [
+      127
+    ],
+    "mufta-ms": []
+  },
+  "depends_on_variant": false,
+  "price_rub": null
+}

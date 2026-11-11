@@ -3,13 +3,23 @@
   "name": "Ось ролика комплект",
   "type": "Прочие детали",
   "models": [
-    "rrp-3d6"
+    "rrp-3d6",
+    "rrp-3d12",
+    "mufta-ms"
   ],
   "figures": {
     "rrp-300": [],
     "rrp-3d6": [
       91,
       92
+    ],
+    "rrp-3d12": [
+      125,
+      134
+    ],
+    "mufta-ms": [
+      138,
+      139
     ]
   },
   "depends_on_variant": false,

@@ -3,12 +3,20 @@
   "name": "Втулка нажимная",
   "type": "Втулки и стаканы",
   "models": [
-    "rrp-3d6"
+    "rrp-3d6",
+    "rrp-3d12",
+    "mufta-ms"
   ],
   "figures": {
     "rrp-300": [],
     "rrp-3d6": [
       92
+    ],
+    "rrp-3d12": [
+      125
+    ],
+    "mufta-ms": [
+      139
     ]
   },
   "depends_on_variant": false,

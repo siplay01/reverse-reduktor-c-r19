@@ -3,13 +3,18 @@
   "name": "Пружина фиксатора",
   "type": "Пружины",
   "models": [
-    "rrp-3d6"
+    "rrp-3d6",
+    "rrp-3d12"
   ],
   "figures": {
     "rrp-300": [],
     "rrp-3d6": [
       93
-    ]
+    ],
+    "rrp-3d12": [
+      126
+    ],
+    "mufta-ms": []
   },
   "depends_on_variant": false,
   "price_rub": null

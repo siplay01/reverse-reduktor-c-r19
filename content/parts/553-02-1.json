@@ -4,7 +4,9 @@
   "type": "Шайбы",
   "models": [
     "rrp-300",
-    "rrp-3d6"
+    "rrp-3d6",
+    "rrp-3d12",
+    "mufta-ms"
   ],
   "figures": {
     "rrp-300": [
@@ -21,6 +23,19 @@
       95,
       96,
       97
+    ],
+    "rrp-3d12": [
+      120,
+      126,
+      127,
+      129,
+      130,
+      132
+    ],
+    "mufta-ms": [
+      136,
+      140,
+      141
     ]
   },
   "depends_on_variant": true,

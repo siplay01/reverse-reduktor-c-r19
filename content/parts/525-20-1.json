@@ -3,13 +3,19 @@
   "name": "Прокладка",
   "type": "Прокладки и уплотнения",
   "models": [
-    "rrp-3d6"
+    "rrp-3d6",
+    "rrp-3d12"
   ],
   "figures": {
     "rrp-300": [],
     "rrp-3d6": [
       94
-    ]
+    ],
+    "rrp-3d12": [
+      127,
+      129
+    ],
+    "mufta-ms": []
   },
   "depends_on_variant": false,
   "price_rub": null

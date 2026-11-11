@@ -1,0 +1,214 @@
+{
+  "model": "mufta-ms",
+  "fig": 141,
+  "title": "Выходной фланец муфты сцепления",
+  "image": "img/mufta/ris-141.webp",
+  "image_large": "img/mufta/ris-141-1400.webp",
+  "thumb": "img/mufta/ris-141-420.webp",
+  "width": 900,
+  "height": 687,
+  "variants": [
+    "2Д12Б"
+  ],
+  "rows": [
+    {
+      "pos": 1,
+      "designation": "556-05",
+      "name": "Болт М8х16",
+      "qty": [
+        12
+      ],
+      "note": ""
+    },
+    {
+      "pos": 2,
+      "designation": "353-24",
+      "name": "Шайба пружинная 8Т",
+      "qty": [
+        12
+      ],
+      "note": ""
+    },
+    {
+      "pos": 3,
+      "designation": "526-37-2",
+      "name": "Крышка сальника",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 4,
+      "designation": "526-39-2",
+      "name": "Прокладка",
+      "qty": [
+        2
+      ],
+      "note": ""
+    },
+    {
+      "pos": 5,
+      "designation": "525-19-1",
+      "name": "Кольцо уплотнительное",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 6,
+      "designation": "311-80",
+      "name": "Штифт цилиндрический",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 7,
+      "designation": "311-77",
+      "name": "Корпус масленки",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 8,
+      "designation": "311-78",
+      "name": "Шарик 5 мм",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 9,
+      "designation": "311-79",
+      "name": "Пружина",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 10,
+      "designation": "525-62-2",
+      "name": "Кольцо упорное",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 11,
+      "designation": "525-21-1",
+      "name": "Роликоподшипник 10-3518",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 12,
+      "designation": "525-42-1",
+      "name": "Прокладка",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 13,
+      "designation": "526-16-2",
+      "name": "Крышка стакана",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 14,
+      "designation": "СБ311-66-1",
+      "name": "Масленка в сборе",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 15,
+      "designation": "553-02-1",
+      "name": "Шайба пружинная 12Н",
+      "qty": [
+        6
+      ],
+      "note": ""
+    },
+    {
+      "pos": 16,
+      "designation": "556-03-1",
+      "name": "Болт М12Х45",
+      "qty": [
+        6
+      ],
+      "note": ""
+    },
+    {
+      "pos": 17,
+      "designation": "525-39-2",
+      "name": "Кольцо уплотнительное",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 18,
+      "designation": "525-132-1",
+      "name": "Прокладка",
+      "qty": [
+        2
+      ],
+      "note": ""
+    },
+    {
+      "pos": 19,
+      "designation": "525-40-1",
+      "name": "Крышка сальника",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 20,
+      "designation": "525-112-2",
+      "name": "Гайка шлицевая",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 21,
+      "designation": "526-25",
+      "name": "Замок",
+      "qty": [
+        1
+      ],
+      "note": ""
+    },
+    {
+      "pos": 22,
+      "designation": "1226-20-2",
+      "name": "Фланец",
+      "qty": [
+        1
+      ],
+      "note": ""
+    }
+  ],
+  "footnotes": {}
+}
